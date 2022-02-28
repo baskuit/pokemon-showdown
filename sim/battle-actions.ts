@@ -678,7 +678,7 @@ export class BattleActions {
 			} else {
 				accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
 			}
-			if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
+			if (accuracy !== true && !this.battle.randomChance(accuracy, 100, true, `hitstepaccuracy ${move.id}`)) {
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
@@ -806,12 +806,12 @@ export class BattleActions {
 			if (targetHits[0] === 2 && targetHits[1] === 5) {
 				if (this.battle.gen >= 5) {
 					// 35-35-15-15 out of 100 for 2-3-4-5 hits
-					targetHits = this.battle.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
+					targetHits = this.battle.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5], true, 'hitstepmovehitloop gen>4');
 				} else {
-					targetHits = this.battle.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+					targetHits = this.battle.sample([2, 2, 2, 3, 3, 3, 4, 5], true, 'hitstepmovehitloop');
 				}
 			} else {
-				targetHits = this.battle.random(targetHits[0], targetHits[1] + 1);
+				targetHits = this.battle.random(targetHits[0], targetHits[1] + 1, true, `hitstepmoveloop ${move.id}`);
 			}
 		}
 		targetHits = Math.floor(targetHits);
@@ -1253,9 +1253,16 @@ export class BattleActions {
 			if (target === false) continue;
 			if (moveData.self && !move.selfDropped) {
 				if (!isSecondary && moveData.self.boosts) {
-					const secondaryRoll = this.battle.random(100);
+					const secondaryRoll = this.battle.random(0, 100, false, 'secondaryroll');
 					if (typeof moveData.self.chance === 'undefined' || secondaryRoll < moveData.self.chance) {
 						this.moveHit(source, source, move, moveData.self, isSecondary, true);
+					}
+					if (typeof moveData.self.chance === 'number') {
+						if (secondaryRoll < moveData.self.chance){
+							this.battle.transition.update(moveData.self.chance, 100, `selfdropsroll ${move.id}`, 'selfdrop roll pass')
+						} else {
+							this.battle.transition.update(100 - moveData.self.chance, 100, `selfdropsroll ${move.id}`, 'selfdrop roll fail')
+						}
 					}
 					if (!move.multihit) move.selfDropped = true;
 				} else {
@@ -1271,12 +1278,16 @@ export class BattleActions {
 			const secondaries: Dex.SecondaryEffect[] =
 				this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 			for (const secondary of secondaries) {
-				const secondaryRoll = this.battle.random(100);
-				// User stat boosts or target stat drops can possibly overflow if it goes beyond 256
-				const secondaryOverflow = (secondary.boosts || secondary.self);
-				if (typeof secondary.chance === 'undefined' ||
-					secondaryRoll < (secondaryOverflow ? secondary.chance % 256 : secondary.chance)) {
+				const secondaryRoll = this.battle.random(0, 100, false, 'secondaries');
+				if (typeof secondary.chance === 'undefined' || secondaryRoll < secondary.chance) {
 					this.moveHit(target, source, move, secondary, true, isSelf);
+				}
+				if (typeof secondary.chance === 'number') {
+					if (secondaryRoll < secondary.chance){
+						this.battle.transition.update(secondary.chance, 100, `secondaryroll ${move.id}`, 'sec.roll pass')
+					} else {
+						this.battle.transition.update(100 - secondary.chance, 100, `secondaryroll ${move.id}`, 'sec.roll fail')
+					}
 				}
 			}
 		}
@@ -1553,7 +1564,7 @@ export class BattleActions {
 		moveHit.crit = move.willCrit || false;
 		if (move.willCrit === undefined) {
 			if (critRatio) {
-				moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
+				moveHit.crit = this.battle.randomChance(1, critMult[critRatio], true, `crit ${move.id}`);
 			}
 		}
 
@@ -1566,10 +1577,6 @@ export class BattleActions {
 
 		if (!basePower) return 0;
 		basePower = this.battle.clampIntRange(basePower, 1);
-		// Hacked Max Moves have 0 base power, even if you Dynamax
-		if ((!source.volatiles['dynamax'] && move.isMax) || (move.isMax && this.dex.moves.get(move.baseMove).isMax)) {
-			basePower = 0;
-		}
 
 		const level = source.level;
 

@@ -219,10 +219,10 @@ export class Side {
 		return data;
 	}
 
-	randomFoe() {
+	randomFoe(suppress=false) {
 		const actives = this.foes();
 		if (!actives.length) return null;
-		return this.battle.sample(actives);
+		return this.battle.sample(actives, !suppress, 'randomFoe');
 	}
 
 	/** Intended as a way to iterate through all foe side conditions - do not use for anything else. */

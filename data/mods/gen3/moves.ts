@@ -149,7 +149,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!possibleTypes.length) {
 				return false;
 			}
-			const type = this.sample(possibleTypes);
+			const type = this.sample(possibleTypes, true, 'conversion gen3');
 
 			if (!target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
@@ -205,12 +205,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'disable',
 		condition: {
 			durationCallback() {
-				return this.random(2, 6);
+				//return this.random(2, 6, false, 'disable gen3');
+				return 6;
 			},
 			noCopy: true,
 			onStart(pokemon) {
+				this.effectState.disableTime = 0;
 				if (!this.queue.willMove(pokemon)) {
 					this.effectState.duration++;
+					this.effectState.disableTime--;
 				}
 				if (!pokemon.lastMove) {
 					return false;
@@ -241,6 +244,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const moveSlot of pokemon.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onResidual(target) {
+				this.effectState.disableTime += 1;
+				if (this.effectState.disableTime >= 2) {
+					const q = 6 - this.effectState.disableTime;
+					const end = this.randomChance(1, q, true, 'disable gen 3');
+					if (end) {
+						target.removeVolatile('disable');
 					}
 				}
 			},
@@ -290,7 +303,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'encore',
 		condition: {
 			durationCallback() {
-				return this.random(3, 7);
+				//return this.random(3, 7, false, 'encore gen3');
+				return 7;
 			},
 			onStart(target, source) {
 				const noEncore = ['encore', 'mimic', 'mirrormove', 'sketch', 'struggle', 'transform'];
@@ -303,9 +317,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return false;
 				}
 				this.effectState.move = target.lastMove.id;
+				this.effectState.encoreTime = 0;
 				this.add('-start', target, 'Encore');
 				if (!this.queue.willMove(target)) {
 					this.effectState.duration++;
+					this.effectState.encoreTime--;
 				}
 			},
 			onOverrideAction(pokemon) {
@@ -320,6 +336,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				) {
 					// early termination if you run out of PP
 					target.removeVolatile('encore');
+				}
+				this.effectState.encoreTime += 1;
+				if (this.effectState.encoreTime >= 3) {
+					const q = 7 - this.effectState.encoreTime;
+					const end = this.randomChance(1, q, true, 'encore gen 3');
+					if (end) {
+						target.removeVolatile('encore');
+					}
 				}
 			},
 			onEnd(target) {
@@ -569,7 +593,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!moves.length) {
 				return false;
 			}
-			const randomMove = this.sample(moves);
+			const randomMove = this.sample(moves, true, 'sleeptalk gen3');
 			if (!randomMove.pp) {
 				this.add('cant', pokemon, 'nopp', randomMove.move);
 				return;
@@ -585,7 +609,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	spite: {
 		inherit: true,
 		onHit(target) {
-			const roll = this.random(2, 6);
+			const roll = this.random(2, 6, true, 'spite gen3'); //perfect info quirk
 			if (target.lastMove && target.deductPP(target.lastMove.id, roll)) {
 				this.add("-activate", target, 'move: Spite', target.lastMove.id, roll);
 				return;
@@ -665,7 +689,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(target) {
 				this.add('-start', target, 'Uproar');
 				// 2-5 turns
-				this.effectState.duration = this.random(2, 6);
+				this.effectState.duration = this.random(2, 6, true, 'uproar gen3');
 			},
 			onResidual(target) {
 				if (target.volatiles['throatchop']) {

@@ -33,10 +33,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			const counter = this.effectState.counter || 1;
 			if (counter >= 256) {
 				// 2^32 - special-cased because Battle.random(n) can't handle n > 2^16 - 1
-				return (this.random() * 4294967296 < 1);
+				return (this.random() * 4294967296 < 1);//TODO
 			}
 			this.debug("Success chance: " + Math.round(100 / counter) + "%");
-			return this.randomChance(1, counter);
+			return this.randomChance(1, counter, true, 'stall gen5');
 		},
 		onRestart() {
 			if (this.effectState.counter < (this.effect as Condition).counterMax!) {

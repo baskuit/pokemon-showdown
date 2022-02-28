@@ -3,7 +3,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
-				if (this.randomChance(1, 3)) {
+				if (this.randomChance(1, 3, true, 'cutecharm gen3')) {
 					source.addVolatile('attract', target);
 				}
 			}
@@ -13,13 +13,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact'] && !source.status) {
-				const r = this.random(300);
+				const r = this.random(0, 300, false, 'effectspore gen3');
 				if (r < 10) {
 					source.setStatus('slp', target);
+					this.transition.update(1, 30, 'effectspore gen3 slp', 1);
 				} else if (r < 20) {
 					source.setStatus('par', target);
+					this.transition.update(1, 30, 'effectspore gen3 par', 2);
 				} else if (r < 30) {
 					source.setStatus('psn', target);
+					this.transition.update(1, 30, 'effectspore gen3 psn', 3);
+				} else {
+					this.transition.update(9, 10, 'effectspore gen3 fail', 0);
 				}
 			}
 		},
@@ -28,7 +33,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
-				if (this.randomChance(1, 3)) {
+				if (this.randomChance(1, 3, true, 'flamebody gen3')) {
 					source.trySetStatus('brn', target);
 				}
 			}
@@ -113,7 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
-				if (this.randomChance(1, 3)) {
+				if (this.randomChance(1, 3, true, 'poisonpoint gen3')) {
 					source.trySetStatus('psn', target);
 				}
 			}
@@ -154,7 +159,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
-				if (this.randomChance(1, 3)) {
+				if (this.randomChance(1, 3, true, 'static gen3')) {
 					source.trySetStatus('par', target);
 				}
 			}

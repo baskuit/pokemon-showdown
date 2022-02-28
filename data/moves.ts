@@ -565,7 +565,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 			let randomMove = '';
-			if (moves.length) randomMove = this.sample(moves);
+			if (moves.length) randomMove = this.sample(moves, true, 'assist');
 			if (!randomMove) {
 				return false;
 			}
@@ -681,7 +681,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
 				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
-				if (this.randomChance(1, 2)) {
+				if (this.randomChance(1, 2, true, 'attract')) {
 					this.add('cant', pokemon, 'Attract');
 					return false;
 				}
@@ -2461,7 +2461,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!possibleTypes.length) {
 				return false;
 			}
-			const randomType = this.sample(possibleTypes);
+			const randomType = this.sample(possibleTypes, true, 'conversion2');
 
 			if (!source.setType(randomType)) return false;
 			this.add('-start', source, 'typechange', randomType);
@@ -10200,28 +10200,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
 		onModifyMove(move, pokemon) {
-			const i = this.random(100);
+			const i = this.random(0, 100, false, 'magnitude');
 			if (i < 5) {
 				move.magnitude = 4;
 				move.basePower = 10;
+				this.transition.update(1, 20, 'mag4', 'mag4');
 			} else if (i < 15) {
 				move.magnitude = 5;
 				move.basePower = 30;
+				this.transition.update(1, 10, 'mag5', 'mag5');
 			} else if (i < 35) {
 				move.magnitude = 6;
 				move.basePower = 50;
+				this.transition.update(1, 5, 'mag6', 'mag6');
 			} else if (i < 65) {
 				move.magnitude = 7;
 				move.basePower = 70;
+				this.transition.update(3, 10, 'mag7', 'mag7');
 			} else if (i < 85) {
 				move.magnitude = 8;
 				move.basePower = 90;
+				this.transition.update(1, 5, 'mag8', 'mag8');
 			} else if (i < 95) {
 				move.magnitude = 9;
 				move.basePower = 110;
+				this.transition.update(1, 10, 'mag9', 'mag9');
 			} else {
 				move.magnitude = 10;
 				move.basePower = 150;
+				this.transition.update(1, 20, 'mag10', 'mag10');
 			}
 		},
 		onUseMoveMessage(pokemon, target, move) {
@@ -11055,7 +11062,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			let randomMove = '';
 			if (moves.length) {
 				moves.sort((a, b) => a.num! - b.num!);
-				randomMove = this.sample(moves).name;
+				randomMove = this.sample(moves, true, 'metronome').name;
 			}
 			if (!randomMove) {
 				return false;
@@ -13030,16 +13037,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon, target) {
-			const rand = this.random(10);
+			const rand = this.random(0, 10, false, 'present');
 			if (rand < 2) {
 				move.heal = [1, 4];
 				move.infiltrates = true;
+				this.transition.update(1, 5, 'present heal', 'present-heal');
 			} else if (rand < 6) {
 				move.basePower = 40;
+				this.transition.update(2, 5, 'present 40', 'present-40');
 			} else if (rand < 9) {
 				move.basePower = 80;
+				this.transition.update(3, 10, 'present 80', 'present-80');
 			} else {
 				move.basePower = 120;
+				this.transition.update(1, 10, 'present 120', 'present-120');
 			}
 		},
 		secondary: null,
@@ -13355,7 +13366,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon) {
-			return (this.random(50, 151) * pokemon.level) / 100;
+			let x = this.random(50, 151, false, 'psywave'); // dont care!
+			if (!this.faithfulDamage) {
+				if (x < 50 + 34) {
+					this.transition.update(34, 101, 'psywave low roll / 3', 'pw-low');
+					x = 50 + 17;
+				} else if (x < 50 + 34 + 34) {
+					this.transition.update(34, 101, 'psywave mid roll / 3', 'pw-mid');
+					x = 50 + 34 + 17;
+				} else {
+					this.transition.update(33, 101, 'psywave high roll / 3', 'pw-high');
+					x = 50 + 34 + 34 + 17;
+				}
+			}
+			return (x * pokemon.level) / 100;
 		},
 		category: "Special",
 		isNonstandard: "Past",
@@ -18471,7 +18495,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 20,
 			onHit(target, source) {
-				const result = this.random(3);
+				const result = this.random(0, 3, true, 'triattack');
 				if (result === 0) {
 					target.trySetStatus('brn', source);
 				} else if (result === 1) {

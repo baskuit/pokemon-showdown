@@ -1871,8 +1871,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
-			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add("-activate", target, "item: Focus Band");
+			if (this.randomChance(1, 10, true, 'focusband') && damage >= target.hp && effect && effect.effectType === 'Move') {				this.add("-activate", target, "item: Focus Band");
 				return target.hp - 1;
 			}
 		},
@@ -5210,7 +5209,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 			}
 			if (stats.length) {
-				const randomStat = this.sample(stats);
+				const randomStat = this.sample(stats, true, 'starf');
 				const boost: SparseBoostsTable = {};
 				boost[randomStat] = 2;
 				this.boost(boost);

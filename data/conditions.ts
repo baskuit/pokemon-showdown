@@ -37,7 +37,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if (this.randomChance(1, 4)) {
+			if (this.randomChance(1, 4, true, 'par')) {
 				this.add('cant', pokemon, 'par');
 				return false;
 			}
@@ -163,7 +163,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectState.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6, false, 'confusion duration'); //TODO
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -254,7 +254,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectState.trueDuration--;
 		},
 		onStart(target, source, effect) {
-			this.effectState.trueDuration = this.random(2, 4);
+			this.effectState.trueDuration = this.random(2, 4, true, 'lockedmove');//TODO
 			this.effectState.move = effect.id;
 		},
 		onRestart() {

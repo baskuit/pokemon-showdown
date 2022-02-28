@@ -13,7 +13,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return spe;
 		},
 		onBeforeMove(pokemon) {
-			if (!pokemon.hasAbility('magicguard') && this.randomChance(1, 4)) {
+			if (!pokemon.hasAbility('magicguard') && this.randomChance(1, 4, true, 'gen4 par')) {
 				this.add('cant', pokemon, 'par');
 				return false;
 			}
@@ -67,7 +67,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return;
 			}
 			this.add('-activate', pokemon, 'confusion');
-			if (this.randomChance(1, 2)) {
+			if (this.randomChance(1, 2, true, 'confusion gen4')) {
 				return;
 			}
 			const damage = this.actions.getDamage(pokemon, pokemon, 40);
@@ -83,7 +83,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	frz: {
 		inherit: true,
 		onBeforeMove(pokemon, target, move) {
-			if (this.randomChance(1, 5)) {
+			if (this.randomChance(1, 5, true, 'frz gen4')) {
 				pokemon.cureStatus();
 				return;
 			}
@@ -107,7 +107,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		inherit: true,
 		durationCallback(target, source) {
 			if (source.hasItem('gripclaw')) return 6;
-			return this.random(3, 7);
+			return this.random(3, 7, true, 'partiallytrapped gen4');//TODO
 		},
 		onResidualOrder: 10,
 		onResidualSubOrder: 9,

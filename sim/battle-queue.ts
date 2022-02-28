@@ -334,7 +334,7 @@ export class BattleQueue {
 	 * would have happened (sorting by priority/speed), without
 	 * re-sorting the existing actions.
 	 */
-	insertChoice(choices: ActionChoice | ActionChoice[], midTurn = false) {
+	 insertChoice(choices: ActionChoice | ActionChoice[], midTurn = false) {
 		if (Array.isArray(choices)) {
 			for (const choice of choices) {
 				this.insertChoice(choice);
@@ -365,7 +365,7 @@ export class BattleQueue {
 			this.list.push(...actions);
 		} else {
 			if (lastIndex === null) lastIndex = this.list.length;
-			const index = firstIndex === lastIndex ? firstIndex : this.battle.random(firstIndex, lastIndex + 1);
+			const index = firstIndex === lastIndex ? firstIndex : this.battle.random(firstIndex, lastIndex + 1, true, `insertchoice`);
 			this.list.splice(index, 0, ...actions);
 		}
 	}
@@ -386,6 +386,20 @@ export class BattleQueue {
 	sort() {
 		// this.log.push('SORT ' + this.debugQueue());
 		this.battle.speedSort(this.list);
+		let permutations = 1;
+		let instances = 1;
+		for (let i = 0; i < this.list.length - 1; ++i) {
+			const current = this.list[i];
+			const next = this.list[i+1];
+			if (this.battle.comparePriority(current, next) !== 0) {
+				instances = 1;
+			} else {
+				instances += 1;
+			}
+			permutations *= instances;
+		}
+		const permKey = this.list.map(action => action.pokemon? 6 * action.pokemon.side.n + action.pokemon.position : -1);
+		this.battle.transition.update(1, permutations, `battle-queue sort`, permKey);
 		return this;
 	}
 }

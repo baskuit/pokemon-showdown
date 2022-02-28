@@ -756,7 +756,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onAfterMoveSecondarySelf(source, target, move) {
-				if (this.randomChance(3, 10)) {
+				if (this.randomChance(3, 10, true, 'secretpower gen5')) {
 					this.boost({accuracy: -1}, target, source);
 				}
 				source.removeVolatile('secretpower');

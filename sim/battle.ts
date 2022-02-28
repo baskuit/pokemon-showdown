@@ -26,6 +26,52 @@ import {BattleActions} from './battle-actions';
 import {Utils} from '../lib';
 declare const __version: any;
 
+class Transition {
+	p: number;
+	q: number;
+	key: number[];
+	log: Array<any>[];
+
+	constructor(){
+		this.p = 1;
+		this.q = 1;
+		this.key = [];
+		this.log = [];
+	}
+
+	update(numerator: number, denominator: number, message: string, k: any) {
+		this.p *= numerator;
+		this.q *= denominator;
+		this.simplify();
+		this.key.push(k);
+		this.log.push([message, numerator, denominator, k, `current ${this.p}/${this.q}`]);
+	}
+
+	reset() {
+		this.p = 1;
+		this.q = 1;
+		this.key = [];
+		this.log = [];
+	}
+
+	simplify() {
+		let a = this.p;
+		let b = this.q;
+		let c;
+		while (a > 0) {
+			c = a;
+			a = b % a;
+			b = c;
+		}
+		this.p /= b;
+		this.q /= b;
+	}
+
+	float() {
+		return this.p/this.q;
+	}
+}
+
 interface BattleOptions {
 	format?: Format;
 	formatid: ID;
@@ -75,6 +121,8 @@ type Part = string | number | boolean | Pokemon | Side | Effect | Move | null | 
 export type RequestState = 'teampreview' | 'move' | 'switch' | '';
 
 export class Battle {
+	transition: Transition;
+	faithfulDamage: boolean;
 	readonly id: ID;
 	readonly debugMode: boolean;
 	readonly deserialized: boolean;
@@ -154,6 +202,8 @@ export class Battle {
 	clampIntRange: (num: any, min?: number, max?: number) => number;
 	toID = toID;
 	constructor(options: BattleOptions) {
+		this.transition = new Transition();
+		this.faithfulDamage = true;
 		this.log = [];
 		this.add('t:', Math.floor(Date.now() / 1000));
 
@@ -302,16 +352,69 @@ export class Battle {
 		return `Battle: ${this.format}`;
 	}
 
-	random(m?: number, n?: number) {
-		return this.prng.next(m, n);
+	random(m?: number, n?: number, ...argv: Array<any>) {
+		const x  = this.prng.next(m, n);
+		if (argv.length === 0) {
+			argv = [true];
+		}
+		if (argv[0]) {
+			let a = 0;
+			let b = 1
+			if (m || m === 0) { //TODO does this fix the double down prob?
+				if (n) {
+					a = m;
+					b = n;
+				} else {
+					a = 0;
+					b = m;
+				}
+			}
+			this.transition.update(1, b - a, argv[1] || '', `random${x}`)
+		} else {
+			this.transition.update(1, 1, (argv[1] || '') + ' suppressed random', 0);
+		}
+		return x;
 	}
 
-	randomChance(numerator: number, denominator: number) {
-		return this.prng.randomChance(numerator, denominator);
+	randomChance(numerator: number, denominator: number, ...argv: Array<any>) {
+		if (argv.length === 0) {
+			argv = [true];
+		}
+		const success = this.prng.randomChance(numerator, denominator);
+		if (numerator > denominator) { //TODO
+			numerator = denominator;
+		}
+		if (argv[0]) {
+			if (success) {
+				this.transition.update(numerator, denominator, argv[1] || '', 'rC1')
+			} else {
+				this.transition.update(denominator - numerator, denominator, argv[1] || '', 'rC0')
+			}
+		} else {
+			this.transition.update(1, 1, (argv[1] || '') + ' suppressed randomChance', 0);
+		}
+		return success;
 	}
 
-	sample<T>(items: readonly T[]): T {
-		return this.prng.sample(items);
+	sample<T>(items: readonly T[], ...argv: Array<any>): T {
+		const x = this.prng.sample(items);
+		if (argv.length === 0) {
+			argv = [true]
+		}
+		if (argv[0]) {
+			let num = 0;
+			let idx = -1;
+			for (const [_, y] of items.entries()) {
+				if (x === y) {
+					num += 1;
+					idx = _;
+				}
+			}
+			this.transition.update(num, items.length, argv[1] || '', `sample${idx}`)
+		} else {
+			this.transition.update(1, 1, (argv[1] || '') + ' suppressed sample', 0);
+		}
+		return x;
 	}
 
 	/** Note that passing `undefined` resets to the starting seed, but `null` will roll a new seed */
@@ -1345,7 +1448,7 @@ export class Battle {
 
 	getRandomSwitchable(side: Side) {
 		const canSwitchIn = this.possibleSwitches(side);
-		return canSwitchIn.length ? this.sample(canSwitchIn) : null;
+		return canSwitchIn.length ? this.sample(canSwitchIn, true, 'getrandomswitchable') : null;
 	}
 
 	private possibleSwitches(side: Side) {
@@ -1526,8 +1629,8 @@ export class Battle {
 				}
 			}
 		}
-		if (this.gen === 2) this.quickClawRoll = this.randomChance(60, 256);
-		if (this.gen === 3) this.quickClawRoll = this.randomChance(1, 5);
+		if (this.gen === 2) this.quickClawRoll = this.randomChance(60, 256, false, 'quickclawroll gen2'); //TODO
+		if (this.gen === 3) this.quickClawRoll = this.randomChance(1, 5, false, 'quickclawroll gen3');
 
 		this.makeRequest('move');
 	}
@@ -2097,7 +2200,21 @@ export class Battle {
 
 	randomizer(baseDamage: number) {
 		const tr = this.trunc;
-		return tr(tr(baseDamage * (100 - this.random(16))) / 100);
+		const x = this.random(0, 16, false, 'roll');
+		if (this.faithfulDamage) {
+			return tr(tr(baseDamage * (100 - x)) / 100);
+		} else {
+			if (x < 4) {
+				this.transition.update(1, 4, 'damage roll: high', 'roll-high');
+				return tr(tr(baseDamage * (100 - 1.5)) / 100);
+			} else if (x < 12) {
+				this.transition.update(1, 2, 'damage roll: mid', 'roll-mid');
+				return tr(tr(baseDamage * (100 - 7.5)) / 100);
+			} else {
+				this.transition.update(1, 4, 'damage roll: low', 'roll-low');
+				return tr(tr(baseDamage * (100 - 13.5)) / 100);
+			}
+		}
 	}
 
 	/**
@@ -2203,7 +2320,7 @@ export class Battle {
 		move = this.dex.moves.get(move);
 		if (move.target === 'adjacentAlly') {
 			const adjacentAllies = pokemon.adjacentAllies();
-			return adjacentAllies.length ? this.sample(adjacentAllies) : null;
+			return adjacentAllies.length ? this.sample(adjacentAllies, true, 'getrandomtarget allies') : null;
 		}
 		if (['self', 'all', 'allySide', 'allyTeam', 'adjacentAllyOrSelf'].includes(move.target)) {
 			return pokemon;
@@ -2213,7 +2330,7 @@ export class Battle {
 				// even if a move can target an ally, auto-resolution will never make it target an ally
 				// i.e. if both your opponents faint before you use Flamethrower, it will fail instead of targeting your all
 				const adjacentFoes = pokemon.adjacentFoes();
-				if (adjacentFoes.length) return this.sample(adjacentFoes);
+				if (adjacentFoes.length) return this.sample(adjacentFoes, true, 'getrandomtarget foes');
 				// no valid target at all, return a possibly-fainted foe for any possible redirection
 				return pokemon.side.foe.active[0];
 			}
@@ -2634,6 +2751,7 @@ export class Battle {
 	}
 
 	commitDecisions() {
+		this.transition.reset();
 		this.updateSpeed();
 
 		const oldQueue = this.queue.list;

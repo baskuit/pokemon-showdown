@@ -355,7 +355,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			} else {
 				accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
 			}
-			if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
+			if (accuracy !== true && !this.battle.randomChance(accuracy, 100, true, `accuracy gen3 ${move.id}`)) {
 				accPass = false;
 			}
 
@@ -389,9 +389,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (Array.isArray(hits)) {
 					// yes, it's hardcoded... meh
 					if (hits[0] === 2 && hits[1] === 5) {
-						hits = this.battle.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+						hits = this.battle.sample([2, 2, 2, 3, 3, 3, 4, 5], true, 'multihit max gen3');
 					} else {
-						hits = this.battle.random(hits[0], hits[1] + 1);
+						hits = this.battle.random(hits[0], hits[1] + 1, true, 'multihit gen3'); //TODO
 					}
 				}
 				hits = Math.floor(hits);
@@ -429,7 +429,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
 						if (!move.alwaysHit) {
 							accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
-							if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) break;
+							if (accuracy !== true && !this.battle.randomChance(accuracy, 100, true, `accuracy gen3 ${move.id}`)) break;
 						}
 					}
 
