@@ -251,7 +251,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.disableTime += 1;
 				if (this.effectState.disableTime >= 2) {
 					const q = 6 - this.effectState.disableTime;
-					const end = this.randomChance(1, q, true, 'disable gen 3');
+					const end = this.randomChance(1, q, true, 'disable gen3');
 					if (end) {
 						target.removeVolatile('disable');
 					}
@@ -340,7 +340,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.encoreTime += 1;
 				if (this.effectState.encoreTime >= 3) {
 					const q = 7 - this.effectState.encoreTime;
-					const end = this.randomChance(1, q, true, 'encore gen 3');
+					const end = this.randomChance(1, q, true, 'encore gen3');
 					if (end) {
 						target.removeVolatile('encore');
 					}
@@ -689,7 +689,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(target) {
 				this.add('-start', target, 'Uproar');
 				// 2-5 turns
-				this.effectState.duration = this.random(2, 6, true, 'uproar gen3');
+				//this.effectState.duration = this.random(2, 6, true, 'uproar gen3');
+				this.effectState.duration = 6;
+				this.effectState.uproarTime = 0;
 			},
 			onResidual(target) {
 				if (target.volatiles['throatchop']) {
@@ -701,6 +703,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					delete target.volatiles['uproar'];
 				}
 				this.add('-start', target, 'Uproar', '[upkeep]');
+				this.effectState.uproarTime += 1;
+				if (this.effectState.uproarTime >= 2) {
+					const q = 6 - this.effectState.uproarTime;
+					const end = this.randomChance(1, q, true, 'uproar gen3');
+					if (end) {
+						target.removeVolatile('uproar');
+					}
+				}
 			},
 			onResidualOrder: 10,
 			onResidualSubOrder: 11,

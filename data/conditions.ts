@@ -163,7 +163,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectState.time = this.random(2, 6, false, 'confusion duration'); //TODO
+			//this.effectState.time = this.random(2, 6, false, 'confusion duration');
+			this.effectState.time = 6;
+			this.effectState.confusionTime = 0;
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');

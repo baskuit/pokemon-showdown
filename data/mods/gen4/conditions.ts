@@ -61,13 +61,17 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	confusion: {
 		inherit: true,
 		onBeforeMove(pokemon) {
-			pokemon.volatiles['confusion'].time--;
-			if (!pokemon.volatiles['confusion'].time) {
-				pokemon.removeVolatile('confusion');
-				return;
+			//pokemon.volatiles['confusion'].time--;
+			pokemon.volatiles['confusion'].confusionTime++;
+			if (pokemon.volatiles['confusion'].confusionTime >= 2) {
+				const q = 6 - pokemon.volatiles['confusion'].confusionTime;
+				if (this.randomChance(1, q, true, 'confusion duration gen4')) {
+					pokemon.removeVolatile('confusion');
+					return;
+				}
 			}
 			this.add('-activate', pokemon, 'confusion');
-			if (this.randomChance(1, 2, true, 'confusion gen4')) {
+			if (this.randomChance(1, 2, true, 'confusion selfdamage gen4')) {
 				return;
 			}
 			const damage = this.actions.getDamage(pokemon, pokemon, 40);
