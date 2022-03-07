@@ -516,10 +516,10 @@ export const Formats: FormatList = [
 		],
 		// Used to distinguish UU from below UU in the client
 		restricted: [
-			'Aegislash', 'Alakazam-Base', 'Altaria-Mega', 'Amoonguss', 'Azumarill', 'Beedrill-Mega', 'Blaziken-Base', 'Breloom', 'Celesteela',
-			'Chandelure', 'Donphan', 'Dracozolt', 'Dragonite', 'Feraligatr', 'Gastrodon', 'Hatterene', 'Hippowdon', 'Infernape', 'Keldeo',
-			'Krookodile', 'Mamoswine', 'Mandibuzz', 'Manectric-Mega', 'Melmetal', 'Mienshao', 'Moltres-Base', 'Nidoking', 'Nidoqueen', 'Nihilego',
-			'Quagsire', 'Regieleki', 'Ribombee', 'Rotom-Heat', 'Rotom-Wash', 'Salamence', 'Scizor', 'Skarmory', 'Slowking-Base', 'Swampert-Base',
+			'Aegislash', 'Altaria-Mega', 'Amoonguss', 'Azumarill', 'Beedrill-Mega', 'Blaziken-Base', 'Breloom', 'Celesteela', 'Chandelure',
+			'Donphan', 'Dracozolt', 'Dragonite', 'Feraligatr', 'Gastrodon', 'Hatterene', 'Hippowdon', 'Infernape', 'Keldeo', 'Krookodile',
+			'Mamoswine', 'Mandibuzz', 'Manectric-Mega', 'Melmetal', 'Mienshao', 'Moltres-Base', 'Nidoking', 'Nidoqueen', 'Nihilego', 'Quagsire',
+			'Regieleki', 'Ribombee', 'Rotom-Heat', 'Rotom-Wash', 'Salamence', 'Scizor', 'Skarmory', 'Slowking-Base', 'Swampert-Base',
 			'Talonflame', 'Tangrowth', 'Tornadus-Base', 'Umbreon', 'Urshifu-Rapid-Strike',
 		],
 	},
@@ -773,6 +773,12 @@ export const Formats: FormatList = [
 				return [
 					`${species.name} cannot cross evolve into ${crossSpecies.name} because they are not consecutive evolution stages.`,
 				];
+			}
+			const item = this.dex.items.get(set.item);
+			if (item.itemUser?.length) {
+				if (!item.itemUser.includes(crossSpecies.name) || crossSpecies.name !== species.name) {
+					return [`${species.name} cannot use ${item.name} because it is cross evolved into ${crossSpecies.name}.`];
+				}
 			}
 			const ability = this.dex.abilities.get(set.ability);
 			if (!this.ruleTable.isRestricted(`ability:${ability.id}`) || Object.values(species.abilities).includes(ability.name)) {
@@ -1157,7 +1163,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen8bdsp',
 		ruleset: ['Little Cup', 'Standard'],
-		banlist: ['Gligar', 'Meditite', 'Misdreavus', 'Murkrow', 'Scyther', 'Sneasel', 'Tangela', 'Vulpix', 'Yanma', 'Moody', 'Baton Pass'],
+		banlist: ['Gligar', 'Meditite', 'Misdreavus', 'Murkrow', 'Scyther', 'Sneasel', 'Tangela', 'Vulpix', 'Yanma', 'Moody', 'Baton Pass', 'Sticky Web'],
 	},
 	{
 		name: "[Gen 8 BDSP] Monotype",
