@@ -206,7 +206,7 @@ export const Formats: FormatList = [
 		],
 		banlist: [
 			'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Dialga', 'Dragonite', 'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Jirachi',
-			'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Melmetal', 'Mew', 'Mewtwo', 'Mimikyu', 'Necrozma-Dawn-Wings',
+			'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Melmetal', 'Mew', 'Mewtwo', 'Mimikyu', 'Necrozma', 'Necrozma-Dawn-Wings',
 			'Necrozma-Dusk-Mane', 'Palkia', 'Rayquaza', 'Reshiram', 'Sableye', 'Snorlax', 'Solgaleo', 'Victini', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned',
 			'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Moody', 'Power Construct', 'Bright Powder', 'Focus Band', 'Focus Sash', 'Lax Incense', 'Quick Claw', 'Perish Song',
 		],
@@ -406,7 +406,7 @@ export const Formats: FormatList = [
 			'Calyrex-Ice', 'Calyrex-Shadow', 'Dialga', 'Eternatus', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Jirachi', 'Kyogre',
 			'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Melmetal', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia',
 			'Rayquaza', 'Reshiram', 'Solgaleo', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned',
-			'Zekrom', 'Power Construct', 'Focus Sash', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger',
+			'Zekrom', 'Moody', 'Power Construct', 'Focus Sash', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger',
 		],
 	},
 	{
@@ -514,11 +514,11 @@ export const Formats: FormatList = [
 		],
 		// Used to distinguish UU from below UU in the client
 		restricted: [
-			'Aegislash', 'Altaria-Mega', 'Amoonguss', 'Azumarill', 'Beedrill-Mega', 'Blaziken-Base', 'Breloom', 'Celesteela', 'Chandelure',
-			'Donphan', 'Dracozolt', 'Dragonite', 'Feraligatr', 'Gastrodon', 'Hatterene', 'Hippowdon', 'Infernape', 'Keldeo', 'Krookodile',
-			'Mamoswine', 'Mandibuzz', 'Manectric-Mega', 'Melmetal', 'Mienshao', 'Moltres-Base', 'Nidoking', 'Nidoqueen', 'Nihilego', 'Quagsire',
-			'Regieleki', 'Ribombee', 'Rotom-Heat', 'Rotom-Wash', 'Salamence', 'Scizor', 'Skarmory', 'Slowking-Base', 'Swampert-Base',
-			'Talonflame', 'Tangrowth', 'Tornadus-Base', 'Umbreon', 'Urshifu-Rapid-Strike',
+			'Aegislash', 'Altaria-Mega', 'Amoonguss', 'Azumarill', 'Beedrill-Mega', 'Breloom', 'Celesteela', 'Chandelure', 'Donphan', 'Dracozolt',
+			'Dragonite', 'Feraligatr', 'Gastrodon', 'Hatterene', 'Hippowdon', 'Infernape', 'Keldeo', 'Krookodile', 'Mamoswine', 'Mandibuzz',
+			'Manectric-Mega', 'Melmetal', 'Mienshao', 'Moltres-Base', 'Nidoking', 'Nidoqueen', 'Nihilego', 'Quagsire', 'Regieleki', 'Ribombee',
+			'Rotom-Heat', 'Rotom-Wash', 'Salamence', 'Scizor', 'Skarmory', 'Slowking-Base', 'Swampert-Base', 'Talonflame', 'Tangrowth', 'Tornadus-Base',
+			'Umbreon', 'Urshifu-Rapid-Strike',
 		],
 	},
 	{
@@ -924,7 +924,7 @@ export const Formats: FormatList = [
 			'Moody', 'Shadow Tag', 'Baton Pass', 'Electrify',
 		],
 		restricted: [
-			'Calyrex-Ice', 'Dialga', 'Eternatus', 'Gengar', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyurem-Black', 'Kyurem-White',
+			'Calyrex-Ice', 'Dialga', 'Gengar', 'Giratina', 'Groudon', 'Ho-Oh', 'Kyurem-Black', 'Kyurem-White',
 			'Lugia', 'Lunala', 'Marshadow', 'Melmetal', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
 			'Palkia', 'Pheromosa', 'Rayquaza', 'Regigigas', 'Reshiram', 'Urshifu', 'Urshifu-Rapid-Strike', 'Xerneas',
 			'Yveltal', 'Zekrom', 'Zygarde-Complete',
@@ -1152,7 +1152,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen8bdsp',
 		ruleset: ['[Gen 8 BDSP] RU'],
-		banlist: ['RU', 'NUBL'],
+		banlist: ['RU', 'NUBL', 'Damp Rock', 'Heat Rock'],
 	},
 	{
 		name: "[Gen 8 BDSP] LC",
@@ -1244,10 +1244,10 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Camomons Mod'],
 		banlist: [
 			'Calyrex-Ice', 'Calyrex-Shadow', 'Darmanitan-Galar', 'Dialga', 'Dracovish', 'Dragonite', 'Eternatus', 'Genesect', 'Giratina', 'Giratina-Origin',
-			'Groudon', 'Ho-Oh', 'Hydreigon', 'Kartana', 'Kyogre', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Latias', 'Latios', 'Lugia',
-			'Lunala', 'Marshadow', 'Mew', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
-			'Reuniclus', 'Shedinja', 'Slowking-Galar', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Volcarona', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned',
-			'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zeraora', 'Zygarde-Base', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+			'Groudon', 'Ho-Oh', 'Hydreigon', 'Kartana', 'Kyogre', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lugia', 'Lunala', 'Marshadow',
+			'Mew', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shedinja', 'Solgaleo',
+			'Spectrier', 'Tornadus-Therian', 'Volcarona', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zeraora',
+			'Zygarde-Base', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Calm Mind',
 		],
 	},
 	{
