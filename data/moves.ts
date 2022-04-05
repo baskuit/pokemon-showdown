@@ -8698,7 +8698,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.volatiles['defensecurl']) {
 				bp *= 2;
 			}
-			this.debug("Ice Ball bp: " + bp);
+			//this.debug("Ice Ball bp: " + bp);
 			return bp;
 		},
 		category: "Physical",
@@ -14093,7 +14093,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				p => p.source === target && p.damage > 0 && p.thisTurn
 			);
 			if (damagedByTarget) {
-				this.debug('Boosted for getting hit by ' + target);
+				//this.debug('Boosted for getting hit by ' + target);
 				return move.basePower * 2;
 			}
 			return move.basePower;
@@ -14402,7 +14402,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.volatiles['defensecurl']) {
 				bp *= 2;
 			}
-			this.debug("Rollout bp: " + bp);
+			//this.debug("Rollout bp: " + bp);
 			return bp;
 		},
 		category: "Physical",
