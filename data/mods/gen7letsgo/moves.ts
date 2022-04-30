@@ -82,9 +82,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User switches out.",
 		priority: -6,
 		selfSwitch: true,
-		onTry(source) {
-			return !!this.canSwitch(source.side);
-		},
+		onTry: true,
 	},
 	zippyzap: {
 		inherit: true,

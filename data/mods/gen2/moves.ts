@@ -129,7 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return false;
 		},
 		beforeTurnCallback() {},
-		onTry() {},
+		onTryHit() {},
 		condition: {},
 		priority: -1,
 	},
@@ -446,7 +446,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return false;
 		},
 		beforeTurnCallback() {},
-		onTry() {},
+		onTryHit() {},
 		condition: {},
 		priority: -1,
 	},

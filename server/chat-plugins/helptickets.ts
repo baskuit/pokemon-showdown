@@ -342,24 +342,17 @@ export class HelpTicket extends Rooms.SimpleRoomGame {
 			this.ticket.claimed ? Utils.html`${this.ticket.creator}` : Utils.html`<strong>${this.ticket.creator}</strong>`
 		);
 		const user = Users.get(this.ticket.creator);
-		let details = '';
+		let namelockedDisplay = '';
 		if (user?.namelocked && !this.ticket.state?.namelocked) {
 			if (!this.ticket.state) this.ticket.state = {};
 			this.ticket.state.namelocked = user.namelocked;
 		}
 		if (this.ticket.state?.namelocked) {
-			details += ` [${this.ticket.state?.namelocked}]`;
-		}
-		if (user?.locked) {
-			const punishment = Punishments.userids.getByType(user.locked, 'LOCK');
-			if (punishment?.rest?.length) {
-				// only #artemis uses this rn
-				details += ` [${punishment.rest.join(', ')}]`;
-			}
+			namelockedDisplay = ` [${this.ticket.state?.namelocked}]`;
 		}
 		return (
 			`<a class="button ${color}" href="/help-${this.ticket.userid}"` +
-			` ${this.getPreview()}>Help ${creator}${details}: ${this.ticket.type}</a> `
+			` ${this.getPreview()}>Help ${creator}${namelockedDisplay}: ${this.ticket.type}</a> `
 		);
 	}
 

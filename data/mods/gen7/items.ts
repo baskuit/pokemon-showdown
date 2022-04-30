@@ -140,10 +140,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	dreamball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	durinberry: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
@@ -499,10 +495,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	safariball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	sailfossil: {
 		inherit: true,
 		isNonstandard: null,
@@ -554,10 +546,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	spookyplate: {
 		inherit: true,
 		isNonstandard: null,
-	},
-	sportball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	steelgem: {
 		inherit: true,

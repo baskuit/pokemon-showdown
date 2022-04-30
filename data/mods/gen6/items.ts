@@ -25,10 +25,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	fastball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	figyberry: {
 		inherit: true,
 		onUpdate(pokemon) {
@@ -42,10 +38,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.addVolatile('confusion');
 			}
 		},
-	},
-	heavyball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	iapapaberry: {
 		inherit: true,
@@ -71,10 +63,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 	},
-	levelball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	lifeorb: {
 		inherit: true,
 		onAfterMoveSecondarySelf(source, target, move) {
@@ -82,14 +70,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
 			}
 		},
-	},
-	loveball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	lureball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	machobrace: {
 		inherit: true,
@@ -112,10 +92,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	magostberry: {
 		inherit: true,
 		isNonstandard: null,
-	},
-	moonball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	nanabberry: {
 		inherit: true,

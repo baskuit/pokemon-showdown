@@ -83,10 +83,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 3,
 		isNonstandard: "Unobtainable",
 	},
-	fastball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	figyberry: {
 		inherit: true,
 		onUpdate() {},
@@ -118,10 +114,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.1);
 			}
 		},
-	},
-	heavyball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	iapapaberry: {
 		inherit: true,
@@ -168,10 +160,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 			return accuracy * 0.95;
 		},
 	},
-	levelball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	liechiberry: {
 		inherit: true,
 		onUpdate() {},
@@ -191,14 +179,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onBasePower() {},
-	},
-	loveball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	lureball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	magnet: {
 		inherit: true,
@@ -240,10 +220,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.1);
 			}
 		},
-	},
-	moonball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	mysticwater: {
 		inherit: true,
@@ -386,10 +362,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.1);
 			}
 		},
-	},
-	sportball: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
 	},
 	starfberry: {
 		inherit: true,

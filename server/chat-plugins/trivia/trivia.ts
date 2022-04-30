@@ -1031,13 +1031,11 @@ export class TimerModeTrivia extends Trivia {
 		}
 
 		buffer += '</table>';
-		buffer += `<br />${this.room.tr`The top 5 players are: ${this.formatPlayerList({max: 5})}`}`;
 
-		if (winner) {
-			return this.win(buffer);
-		} else {
-			broadcast(this.room, this.room.tr`The answering period has ended!`, buffer);
-		}
+		if (winner) return this.win(buffer);
+
+		buffer += `<br />${this.room.tr`The top 5 players are: ${this.formatPlayerList({max: 5})}`}`;
+		broadcast(this.room, this.room.tr`The answering period has ended!`, buffer);
 		this.setPhaseTimeout(() => void this.askQuestion(), INTERMISSION_INTERVAL);
 	}
 }
@@ -1079,11 +1077,10 @@ export class NumberModeTrivia extends Trivia {
 		);
 
 		const points = this.calculatePoints(innerBuffer.length);
-		let winner = false;
 		if (points) {
 			const cap = this.getCap();
 			// We add 1 questionNumber because it starts at 0
-			winner = !!cap.questions && this.questionNumber >= cap.questions;
+			let winner = cap.questions && this.questionNumber >= cap.questions;
 			for (const userid in this.playerTable) {
 				const player = this.playerTable[userid];
 				if (player.isCorrect) player.incrementPoints(points, this.questionNumber);
@@ -1099,6 +1096,8 @@ export class NumberModeTrivia extends Trivia {
 			buffer = this.room.tr`Correct: ${players}` + `<br />` +
 				this.room.tr`Answer(s): ${this.curAnswers.join(', ')}<br />` +
 				`${Chat.plural(innerBuffer, this.room.tr`Each of them gained <strong>${points}</strong> point(s)!`, this.room.tr`They gained <strong>${points}</strong> point(s)!`)}`;
+
+			if (winner) return this.win(buffer);
 		} else {
 			for (const userid in this.playerTable) {
 				const player = this.playerTable[userid];
@@ -1111,12 +1110,7 @@ export class NumberModeTrivia extends Trivia {
 		}
 
 		buffer += `<br />${this.room.tr`The top 5 players are: ${this.formatPlayerList({max: 5})}`}`;
-
-		if (winner) {
-			return this.win(buffer);
-		} else {
-			broadcast(this.room, this.room.tr`The answering period has ended!`, buffer);
-		}
+		broadcast(this.room, this.room.tr`The answering period has ended!`, buffer);
 		this.setPhaseTimeout(() => void this.askQuestion(), INTERMISSION_INTERVAL);
 	}
 }

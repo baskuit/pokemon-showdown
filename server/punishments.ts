@@ -943,11 +943,10 @@ export const Punishments = new class {
 		id: ID | PunishType | null,
 		ignoreAlts: boolean,
 		reason: string,
-		bypassPunishmentfilter = false,
-		rest?: any[]
+		bypassPunishmentfilter = false
 	) {
 		if (!expireTime) expireTime = Date.now() + LOCK_DURATION;
-		const punishment = {type: 'LOCK', id, expireTime, reason: reason, rest} as Punishment;
+		const punishment = {type: 'LOCK', id, expireTime, reason: reason} as Punishment;
 
 		const userObject = Users.get(user);
 		// This makes it easier for unit tests to tell if a user was locked
