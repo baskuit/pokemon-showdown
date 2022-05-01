@@ -122,7 +122,12 @@ export type RequestState = 'teampreview' | 'move' | 'switch' | '';
 
 export class Battle {
 	transition: Transition;
+
 	faithfulDamage: boolean;
+	damageRolls : any[];
+	damageRollProbabilities : any[];
+	damageRollRationals : any[];
+
 	readonly id: ID;
 	readonly debugMode: boolean;
 	readonly deserialized: boolean;
@@ -204,6 +209,9 @@ export class Battle {
 	constructor(options: BattleOptions) {
 		this.transition = new Transition();
 		this.faithfulDamage = true;
+		this.damageRolls = [7.5];
+		this.damageRollProbabilities = [1];
+		this.damageRollRationals = [[1, 1]];
 		this.log = [];
 		this.add('t:', Math.floor(Date.now() / 1000));
 
@@ -1618,6 +1626,20 @@ export class Battle {
 			}
 		}
 
+		const dynamaxEnding: Pokemon[] = [];
+		for (const pokemon of this.getAllActive()) {
+			if (pokemon.volatiles['dynamax']?.turns === 3) {
+				dynamaxEnding.push(pokemon);
+			}
+		}
+		if (dynamaxEnding.length > 1) {
+			this.updateSpeed();
+			this.speedSort(dynamaxEnding);
+		}
+		for (const pokemon of dynamaxEnding) {
+			pokemon.removeVolatile('dynamax');
+		}
+
 		this.add('turn', this.turn);
 		if (this.gameType === 'multi') {
 			for (const side of this.sides) {
@@ -2203,21 +2225,25 @@ export class Battle {
 
 	randomizer(baseDamage: number) {
 		const tr = this.trunc;
-		const x = this.random(0, 16, false, 'roll');
+		
 		if (this.faithfulDamage) {
+			const x = this.random(0, 16, false, 'roll'); //maybe track by default?
 			return tr(tr(baseDamage * (100 - x)) / 100);
 		} else {
-			if (x < 4) {
-				this.transition.update(1, 4, 'damage roll: high', 'roll-high');
-				return tr(tr(baseDamage * (100 - 1.5)) / 100);
-			} else if (x < 12) {
-				this.transition.update(1, 2, 'damage roll: mid', 'roll-mid');
-				return tr(tr(baseDamage * (100 - 7.5)) / 100);
-			} else {
-				this.transition.update(1, 4, 'damage roll: low', 'roll-low');
-				return tr(tr(baseDamage * (100 - 13.5)) / 100);
+			let seed = Math.random();
+			let idx = 0;
+			for (let i = 0; i < this.damageRolls.length; ++i) {
+				seed -= this.damageRollProbabilities[i];
+				if (seed <= 0) {
+					idx = i;
+				}
 			}
+			const [p, q] = this.damageRollRationals[idx];
+			const x = this.damageRolls[idx];
+			this.transition.update(p, q, 'damage roll', `roll ${idx}`);
+			return tr(tr(baseDamage * (100 - x)) / 100);
 		}
+
 	}
 
 	/**
@@ -2521,7 +2547,7 @@ export class Battle {
 			action.pokemon.side.dynamaxUsed = true;
 			if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = true;
 			break;
-		case 'beforeTurnMove': {
+		case 'beforeTurnMove':
 			if (!action.pokemon.isActive) return false;
 			if (action.pokemon.fainted) return false;
 			this.debug('before turn callback: ' + action.move.id);
@@ -2530,7 +2556,13 @@ export class Battle {
 			if (!action.move.beforeTurnCallback) throw new Error(`beforeTurnMove has no beforeTurnCallback`);
 			action.move.beforeTurnCallback.call(this, action.pokemon, target);
 			break;
-		}
+		case 'priorityChargeMove':
+			if (!action.pokemon.isActive) return false;
+			if (action.pokemon.fainted) return false;
+			this.debug('priority charge callback: ' + action.move.id);
+			if (!action.move.priorityChargeCallback) throw new Error(`priorityChargeMove has no priorityChargeCallback`);
+			action.move.priorityChargeCallback.call(this, action.pokemon);
+			break;
 
 		case 'event':
 			this.runEvent(action.event!, action.pokemon);
