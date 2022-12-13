@@ -4029,7 +4029,12 @@ export const Formats: FormatList = [
 
 	// Past Generations
 	///////////////////////////////////////////////////////////////////
-
+	{
+		name: "[Gen 3] Sample Team Randbats",
+		team: 'random',
+		mod: 'gen3sampleteamrandbats',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+	},
 	{
 		section: "Past Generations",
 		column: 7,
