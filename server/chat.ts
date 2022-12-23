@@ -1126,12 +1126,12 @@ export class CommandContext extends MessageContext {
 						throw new Chat.ErrorMessage(this.tr`You are ${lockType} and can't talk in chat. ${lockExpiration}`);
 					}
 				}
-				if (!room.persist && !room.roomid.startsWith('help-') && !(user.registered || user.autoconfirmed)) {
-					this.sendReply(
-						this.tr`|html|<div class="message-error">You must be registered to chat in temporary rooms (like battles).</div>` +
-						this.tr`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
-					);
-					throw new Chat.Interruption();
+				if (!room.persist && !room.roomid.startsWith('help-')) {
+					// this.sendReply(
+					// 	this.tr`|html|<div class="message-error">You must be registered to chat in temporary rooms (like battles).</div>` +
+					// 	this.tr`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
+					// );
+					// throw new Chat.Interruption();
 				}
 				if (room.isMuted(user)) {
 					throw new Chat.ErrorMessage(this.tr`You are muted and cannot talk in this room.`);
@@ -1160,14 +1160,14 @@ export class CommandContext extends MessageContext {
 			}
 			if (targetUser) {
 				// this accounts for users who are autoconfirmed on another alt, but not registered
-				if (!(user.registered || user.autoconfirmed)) {
-					this.sendReply(
-						this.tr`|html|<div class="message-error">You must be registered to send private messages.</div>` +
-						this.tr`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
-					);
-					throw new Chat.Interruption();
-				}
-				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed)) {
+				// if (false) {
+				// 	this.sendReply(
+				// 		this.tr`|html|<div class="message-error">You must be registered to send private messages.</div>` +
+				// 		this.tr`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
+				// 	);
+				// 	throw new Chat.Interruption();
+				// }
+				if (targetUser.id !== user.id) {
 					throw new Chat.ErrorMessage(this.tr`That user is unregistered and cannot be PMed.`);
 				}
 				if (lockType && !targetUser.can('lock')) {

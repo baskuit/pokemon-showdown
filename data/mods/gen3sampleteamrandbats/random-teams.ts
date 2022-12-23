@@ -1524,101 +1524,101 @@ const SampleTeamsData = {
 			},
 		},
 	},
-	Forre_Venu_Aero: {
-		teamName: "Forre Venu Aero",
-		teamData: {
-			set0Data: {
-				name: "",
-				species: "Forretress",
-				item: "Leftovers",
-				ability: "Sturdy",
-				moves: {
-					move1: "Spikes",
-					move2: "Rapid Spin",
-					move3: "Hidden Power Bug",
-					move4: "Earthquake",
-				},
-				evs: {hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0},
-				nature: "Careful",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 30, spe: 30},
-			},
-			set1Data: {
-				name: "",
-				species: "Tyranitar",
-				item: "Leftovers",
-				ability: "Sand Stream",
-				moves: {
-					move1: "Crunch",
-					move2: "Pursuit",
-					move3: "Fire Blast",
-					move4: "Roar",
-				},
-				evs: {hp: 200, atk: 0, def: 0, spa: 216, spd: 0, spe: 92},
-				nature: "Modest",
-				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set2Data: {
-				name: "",
-				species: "Blissey",
-				item: "Leftovers",
-				ability: "Natural Cure",
-				moves: {
-					move1: "Seismic Toss",
-					move2: "Toxic",
-					move3: "Snatch",
-					move4: "Soft-Boiled",
-				},
-				evs: {hp: 184, atk: 0, def: 252, spa: 0, spd: 0, spe: 72},
-				nature: "Impish",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set3Data: {
-				name: "",
-				species: "Swampert",
-				item: "Leftovers",
-				ability: "Torrent",
-				moves: {
-					move1: "Earthquake",
-					move2: "Ice Beam",
-					move3: "Hydro Pump",
-					move4: "Protect",
-				},
-				evs: {hp: 248, atk: 0, def: 124, spa: 92, spd: 44, spe: 0},
-				nature: "Relaxed",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set4Data: {
-				name: "",
-				species: "Venusaur",
-				item: "Leftovers",
-				ability: "Overgrow",
-				moves: {
-					move1: "Giga Drain",
-					move2: "Hidden Power Fire",
-					move3: "Sleep Powder",
-					move4: "Leech Seed",
-				},
-				evs: {hp: 0, atk: 0, def: 0, spa: 252, spd: 4, spe: 252},
-				nature: "Timid",
-				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
-			},
-			set5Data: {
-				name: "",
-				species: "Aerodactyl",
-				item: "Choice Band",
-				ability: "Rock Head",
-				moves: {
-					move1: "Rock Slide",
-					move2: "Earthquake",
-					move3: "Double-Edge",
-					move4: "Hidden Power Flying",
-				},
-				evs: {hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252},
-				nature: "Jolly",
-				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
-			},
-		},
-	},
+	// Forre_Venu_Aero: {
+	// 	teamName: "Forre Venu Aero",
+	// 	teamData: {
+	// 		set0Data: {
+	// 			name: "",
+	// 			species: "Forretress",
+	// 			item: "Leftovers",
+	// 			ability: "Sturdy",
+	// 			moves: {
+	// 				move1: "Spikes",
+	// 				move2: "Rapid Spin",
+	// 				move3: "Hidden Power Bug",
+	// 				move4: "Earthquake",
+	// 			},
+	// 			evs: {hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0},
+	// 			nature: "Careful",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 30, spe: 30},
+	// 		},
+	// 		set1Data: {
+	// 			name: "",
+	// 			species: "Tyranitar",
+	// 			item: "Leftovers",
+	// 			ability: "Sand Stream",
+	// 			moves: {
+	// 				move1: "Crunch",
+	// 				move2: "Pursuit",
+	// 				move3: "Fire Blast",
+	// 				move4: "Roar",
+	// 			},
+	// 			evs: {hp: 200, atk: 0, def: 0, spa: 216, spd: 0, spe: 92},
+	// 			nature: "Modest",
+	// 			ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set2Data: {
+	// 			name: "",
+	// 			species: "Blissey",
+	// 			item: "Leftovers",
+	// 			ability: "Natural Cure",
+	// 			moves: {
+	// 				move1: "Seismic Toss",
+	// 				move2: "Toxic",
+	// 				move3: "Snatch",
+	// 				move4: "Soft-Boiled",
+	// 			},
+	// 			evs: {hp: 184, atk: 0, def: 252, spa: 0, spd: 0, spe: 72},
+	// 			nature: "Impish",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set3Data: {
+	// 			name: "",
+	// 			species: "Swampert",
+	// 			item: "Leftovers",
+	// 			ability: "Torrent",
+	// 			moves: {
+	// 				move1: "Earthquake",
+	// 				move2: "Ice Beam",
+	// 				move3: "Hydro Pump",
+	// 				move4: "Protect",
+	// 			},
+	// 			evs: {hp: 248, atk: 0, def: 124, spa: 92, spd: 44, spe: 0},
+	// 			nature: "Relaxed",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set4Data: {
+	// 			name: "",
+	// 			species: "Venusaur",
+	// 			item: "Leftovers",
+	// 			ability: "Overgrow",
+	// 			moves: {
+	// 				move1: "Giga Drain",
+	// 				move2: "Hidden Power Fire",
+	// 				move3: "Sleep Powder",
+	// 				move4: "Leech Seed",
+	// 			},
+	// 			evs: {hp: 0, atk: 0, def: 0, spa: 252, spd: 4, spe: 252},
+	// 			nature: "Timid",
+	// 			ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
+	// 		},
+	// 		set5Data: {
+	// 			name: "",
+	// 			species: "Aerodactyl",
+	// 			item: "Choice Band",
+	// 			ability: "Rock Head",
+	// 			moves: {
+	// 				move1: "Rock Slide",
+	// 				move2: "Earthquake",
+	// 				move3: "Double-Edge",
+	// 				move4: "Hidden Power Flying",
+	// 			},
+	// 			evs: {hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252},
+	// 			nature: "Jolly",
+	// 			ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
+	// 		},
+	// 	},
+	// },
 	Heracross_Gengar_Aero: {
 		teamName: "Heracross & Gengar & Aero",
 		teamData: {
@@ -2763,7 +2763,7 @@ const SampleTeamsData = {
 		teamName: "SkarmBliss Tarless Dug RefreshPert MixMence Aero",
 		teamData: {
 			set0Data: {
-				name: "Not A Duck",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -2778,7 +2778,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "ibid.",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -2793,7 +2793,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "Pasta Tea Toes",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -2808,7 +2808,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Dug and Friends",
+				name: "",
 				species: "Dugtrio",
 				item: "Choice Band",
 				ability: "Arena Trap",
@@ -2823,7 +2823,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 30, spe: 31},
 			},
 			set4Data: {
-				name: "RainyUSUM",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -2838,7 +2838,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "9239",
+				name: "",
 				species: "Aerodactyl",
 				item: "Choice Band",
 				ability: "Rock Head",
@@ -2953,7 +2953,7 @@ const SampleTeamsData = {
 		teamName: "SkarmMag Venu",
 		teamData: {
 			set0Data: {
-				name: "FriendsOnMushrooms",
+				name: "",
 				species: "Venusaur",
 				item: "Leftovers",
 				ability: "Overgrow",
@@ -2968,7 +2968,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set1Data: {
-				name: "Blue Muppet",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -2983,7 +2983,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "Who Is There?",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -2998,7 +2998,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Heavyweight",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -3013,7 +3013,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "Where Do I Belong",
+				name: "",
 				species: "Aerodactyl",
 				item: "Choice Band",
 				ability: "Rock Head",
@@ -3028,7 +3028,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set5Data: {
-				name: "Eat It Raw",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -6563,7 +6563,7 @@ const SampleTeamsData = {
 		teamName: "Cloy Jynx Bliss",
 		teamData: {
 			set0Data: {
-				name: "ヽ(⚆ ε ⚆)ﾉ",
+				name: "",
 				species: "Jynx",
 				item: "Lum Berry",
 				ability: "Oblivious",
@@ -6578,7 +6578,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set1Data: {
-				name: "d3Rp1tY p3rT",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -6593,7 +6593,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Salac Berry",
 				ability: "Clear Body",
@@ -6608,7 +6608,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: ":D",
+				name: "",
 				species: "Gengar",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -6623,7 +6623,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "z0ms wet dream",
+				name: "",
 				species: "Cloyster",
 				item: "Leftovers",
 				ability: "Shell Armor",
@@ -6638,7 +6638,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "toöøty",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -7038,7 +7038,7 @@ const SampleTeamsData = {
 		teamName: "Cloy Molt Gross Gar Pert Bliss",
 		teamData: {
 			set0Data: {
-				name: "d3Rp1tY p3rT",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -7053,7 +7053,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "SunnyORAS",
+				name: "",
 				species: "Moltres",
 				item: "Leftovers",
 				ability: "Pressure",
@@ -7068,7 +7068,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Leftovers",
 				ability: "Clear Body",
@@ -7083,7 +7083,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: ":D",
+				name: "",
 				species: "Gengar",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -7098,7 +7098,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "z0ms wet dream",
+				name: "",
 				species: "Cloyster",
 				item: "Leftovers",
 				ability: "Shell Armor",
@@ -7113,7 +7113,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "Tooty McBliss",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -8079,101 +8079,101 @@ const SampleTeamsData = {
 			},
 		},
 	},
-	Forre_JUMPLUFF: {
-		teamName: "Forre JUMPLUFF",
-		teamData: {
-			set0Data: {
-				name: "",
-				species: "Swampert",
-				item: "Leftovers",
-				ability: "Torrent",
-				moves: {
-					move1: "Earthquake",
-					move2: "Ice Beam",
-					move3: "Hydro Pump",
-					move4: "Protect",
-				},
-				evs: {hp: 248, atk: 0, def: 124, spa: 92, spd: 44, spe: 0},
-				nature: "Relaxed",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set1Data: {
-				name: "",
-				species: "Forretress",
-				item: "Leftovers",
-				ability: "Sturdy",
-				moves: {
-					move1: "Spikes",
-					move2: "Rapid Spin",
-					move3: "Hidden Power Bug",
-					move4: "Earthquake",
-				},
-				evs: {hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0},
-				nature: "Careful",
-				ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 30, spe: 31},
-			},
-			set2Data: {
-				name: "",
-				species: "Jumpluff",
-				item: "Leftovers",
-				ability: "Chlorophyll",
-				moves: {
-					move1: "Substitute",
-					move2: "Leech Seed",
-					move3: "Encore",
-					move4: "Sleep Powder",
-				},
-				evs: {hp: 0, atk: 0, def: 56, spa: 0, spd: 200, spe: 252},
-				nature: "Jolly",
-				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set3Data: {
-				name: "",
-				species: "Gengar",
-				item: "Leftovers",
-				ability: "Levitate",
-				moves: {
-					move1: "Thunderbolt",
-					move2: "Ice Punch",
-					move3: "Will-O-Wisp",
-					move4: "Taunt",
-				},
-				evs: {hp: 140, atk: 0, def: 0, spa: 0, spd: 180, spe: 188},
-				nature: "Timid",
-				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set4Data: {
-				name: "",
-				species: "Blissey",
-				item: "Leftovers",
-				ability: "Natural Cure",
-				moves: {
-					move1: "Seismic Toss",
-					move2: "Toxic",
-					move3: "Snatch",
-					move4: "Soft-Boiled",
-				},
-				evs: {hp: 224, atk: 0, def: 252, spa: 0, spd: 0, spe: 32},
-				nature: "Bold",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set5Data: {
-				name: "",
-				species: "Tyranitar",
-				item: "Leftovers",
-				ability: "Sand Stream",
-				moves: {
-					move1: "Pursuit",
-					move2: "Crunch",
-					move3: "Thunder",
-					move4: "Roar",
-				},
-				evs: {hp: 240, atk: 0, def: 72, spa: 176, spd: 0, spe: 20},
-				nature: "Modest",
-				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-		},
-	},
+	// Forre_JUMPLUFF: {
+	// 	teamName: "Forre JUMPLUFF",
+	// 	teamData: {
+	// 		set0Data: {
+	// 			name: "",
+	// 			species: "Swampert",
+	// 			item: "Leftovers",
+	// 			ability: "Torrent",
+	// 			moves: {
+	// 				move1: "Earthquake",
+	// 				move2: "Ice Beam",
+	// 				move3: "Hydro Pump",
+	// 				move4: "Protect",
+	// 			},
+	// 			evs: {hp: 248, atk: 0, def: 124, spa: 92, spd: 44, spe: 0},
+	// 			nature: "Relaxed",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set1Data: {
+	// 			name: "",
+	// 			species: "Forretress",
+	// 			item: "Leftovers",
+	// 			ability: "Sturdy",
+	// 			moves: {
+	// 				move1: "Spikes",
+	// 				move2: "Rapid Spin",
+	// 				move3: "Hidden Power Bug",
+	// 				move4: "Earthquake",
+	// 			},
+	// 			evs: {hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0},
+	// 			nature: "Careful",
+	// 			ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 30, spe: 31},
+	// 		},
+	// 		set2Data: {
+	// 			name: "",
+	// 			species: "Jumpluff",
+	// 			item: "Leftovers",
+	// 			ability: "Chlorophyll",
+	// 			moves: {
+	// 				move1: "Substitute",
+	// 				move2: "Leech Seed",
+	// 				move3: "Encore",
+	// 				move4: "Sleep Powder",
+	// 			},
+	// 			evs: {hp: 0, atk: 0, def: 56, spa: 0, spd: 200, spe: 252},
+	// 			nature: "Jolly",
+	// 			ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set3Data: {
+	// 			name: "",
+	// 			species: "Gengar",
+	// 			item: "Leftovers",
+	// 			ability: "Levitate",
+	// 			moves: {
+	// 				move1: "Thunderbolt",
+	// 				move2: "Ice Punch",
+	// 				move3: "Will-O-Wisp",
+	// 				move4: "Taunt",
+	// 			},
+	// 			evs: {hp: 140, atk: 0, def: 0, spa: 0, spd: 180, spe: 188},
+	// 			nature: "Timid",
+	// 			ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set4Data: {
+	// 			name: "",
+	// 			species: "Blissey",
+	// 			item: "Leftovers",
+	// 			ability: "Natural Cure",
+	// 			moves: {
+	// 				move1: "Seismic Toss",
+	// 				move2: "Toxic",
+	// 				move3: "Snatch",
+	// 				move4: "Soft-Boiled",
+	// 			},
+	// 			evs: {hp: 224, atk: 0, def: 252, spa: 0, spd: 0, spe: 32},
+	// 			nature: "Bold",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set5Data: {
+	// 			name: "",
+	// 			species: "Tyranitar",
+	// 			item: "Leftovers",
+	// 			ability: "Sand Stream",
+	// 			moves: {
+	// 				move1: "Pursuit",
+	// 				move2: "Crunch",
+	// 				move3: "Thunder",
+	// 				move4: "Roar",
+	// 			},
+	// 			evs: {hp: 240, atk: 0, def: 72, spa: 176, spd: 0, spe: 20},
+	// 			nature: "Modest",
+	// 			ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 	},
+	// },
 	Forre_MixPert_RefreshMilo: {
 		teamName: "Forre MixPert RefreshMilo",
 		teamData: {
@@ -9413,7 +9413,7 @@ const SampleTeamsData = {
 		teamName: "MagFat ToxicGross WishBliss DDMence Cune PerishCele",
 		teamData: {
 			set0Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Leftovers",
 				ability: "Clear Body",
@@ -9428,7 +9428,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "toöøty",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -9443,7 +9443,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "magnez0m",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -9458,7 +9458,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set3Data: {
-				name: "baddummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -9473,7 +9473,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set4Data: {
-				name: "soy sauce",
+				name: "",
 				species: "Suicune",
 				item: "Leftovers",
 				ability: "Pressure",
@@ -9488,7 +9488,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "the lotus pirate",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -11598,7 +11598,7 @@ const SampleTeamsData = {
 		teamName: "SkarmBliss Dol PhysTar BulkySuperJira GoofyTimidCune",
 		teamData: {
 			set0Data: {
-				name: "Tabatatar",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -11613,7 +11613,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 30, spe: 30},
 			},
 			set1Data: {
-				name: "Askarmatitos",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -11628,7 +11628,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "toöøty mcbliss",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -11643,7 +11643,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Clay_g",
+				name: "",
 				species: "Claydol",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -11658,7 +11658,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "Golden Rachi",
+				name: "",
 				species: "Jirachi",
 				item: "Leftovers",
 				ability: "Serene Grace",
@@ -11673,7 +11673,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "hcune",
+				name: "",
 				species: "Suicune",
 				item: "Leftovers",
 				ability: "Pressure",
@@ -11788,7 +11788,7 @@ const SampleTeamsData = {
 		teamName: "SkarmBliss Dol PhysTar MixGross OffStar",
 		teamData: {
 			set0Data: {
-				name: "Tabatatar",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -11803,7 +11803,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 30, spe: 30},
 			},
 			set1Data: {
-				name: "Askarmatitos",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -11818,7 +11818,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "toöøty mcbliss",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -11833,7 +11833,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Clay_g",
+				name: "",
 				species: "Claydol",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -11848,7 +11848,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Leftovers",
 				ability: "Clear Body",
@@ -11863,7 +11863,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set5Data: {
-				name: "Astarmietitos",
+				name: "",
 				species: "Starmie",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -12133,7 +12133,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "Pat",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -12734,101 +12734,101 @@ const SampleTeamsData = {
 			},
 		},
 	},
-	SkarmBliss_Loom_MixMence_Snatchbliss: {
-		teamName: "SkarmBliss Loom MixMence Snatchbliss",
-		teamData: {
-			set0Data: {
-				name: "",
-				species: "Skarmory",
-				item: "Leftovers",
-				ability: "Keen Eye",
-				moves: {
-					move1: "Protect",
-					move2: "Toxic",
-					move3: "Whirlwind",
-					move4: "Spikes",
-				},
-				evs: {hp: 240, atk: 0, def: 0, spa: 0, spd: 244, spe: 24},
-				nature: "Careful",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set1Data: {
-				name: "",
-				species: "Blissey",
-				item: "Leftovers",
-				ability: "Natural Cure",
-				moves: {
-					move1: "Seismic Toss",
-					move2: "Toxic",
-					move3: "Snatch",
-					move4: "Soft-Boiled",
-				},
-				evs: {hp: 184, atk: 0, def: 252, spa: 0, spd: 0, spe: 72},
-				nature: "Impish",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set2Data: {
-				name: "",
-				species: "Tyranitar",
-				item: "Leftovers",
-				ability: "Sand Stream",
-				moves: {
-					move1: "Crunch",
-					move2: "Pursuit",
-					move3: "Fire Blast",
-					move4: "Hidden Power Grass",
-				},
-				evs: {hp: 200, atk: 0, def: 0, spa: 220, spd: 0, spe: 88},
-				nature: "Modest",
-				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
-			},
-			set3Data: {
-				name: "",
-				species: "Swampert",
-				item: "Leftovers",
-				ability: "Torrent",
-				moves: {
-					move1: "Surf",
-					move2: "Protect",
-					move3: "Roar",
-					move4: "Refresh",
-				},
-				evs: {hp: 240, atk: 0, def: 152, spa: 40, spd: 44, spe: 32},
-				nature: "Bold",
-				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-			set4Data: {
-				name: "",
-				species: "Salamence",
-				item: "Leftovers",
-				ability: "Intimidate",
-				moves: {
-					move1: "Dragon Claw",
-					move2: "Fire Blast",
-					move3: "Hidden Power Grass",
-					move4: "Brick Break",
-				},
-				evs: {hp: 0, atk: 4, def: 0, spa: 252, spd: 0, spe: 252},
-				nature: "Naive",
-				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
-			},
-			set5Data: {
-				name: "",
-				species: "Breloom",
-				item: "Leftovers",
-				ability: "Effect Spore",
-				moves: {
-					move1: "Spore",
-					move2: "Focus Punch",
-					move3: "Sky Uppercut",
-					move4: "Mach Punch",
-				},
-				evs: {hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252},
-				nature: "Jolly",
-				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
-			},
-		},
-	},
+	// SkarmBliss_Loom_MixMence_Snatchbliss: {
+	// 	teamName: "SkarmBliss Loom MixMence Snatchbliss",
+	// 	teamData: {
+	// 		set0Data: {
+	// 			name: "",
+	// 			species: "Skarmory",
+	// 			item: "Leftovers",
+	// 			ability: "Keen Eye",
+	// 			moves: {
+	// 				move1: "Protect",
+	// 				move2: "Toxic",
+	// 				move3: "Whirlwind",
+	// 				move4: "Spikes",
+	// 			},
+	// 			evs: {hp: 240, atk: 0, def: 0, spa: 0, spd: 244, spe: 24},
+	// 			nature: "Careful",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set1Data: {
+	// 			name: "",
+	// 			species: "Blissey",
+	// 			item: "Leftovers",
+	// 			ability: "Natural Cure",
+	// 			moves: {
+	// 				move1: "Seismic Toss",
+	// 				move2: "Toxic",
+	// 				move3: "Snatch",
+	// 				move4: "Soft-Boiled",
+	// 			},
+	// 			evs: {hp: 184, atk: 0, def: 252, spa: 0, spd: 0, spe: 72},
+	// 			nature: "Impish",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set2Data: {
+	// 			name: "",
+	// 			species: "Tyranitar",
+	// 			item: "Leftovers",
+	// 			ability: "Sand Stream",
+	// 			moves: {
+	// 				move1: "Crunch",
+	// 				move2: "Pursuit",
+	// 				move3: "Fire Blast",
+	// 				move4: "Hidden Power Grass",
+	// 			},
+	// 			evs: {hp: 200, atk: 0, def: 0, spa: 220, spd: 0, spe: 88},
+	// 			nature: "Modest",
+	// 			ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
+	// 		},
+	// 		set3Data: {
+	// 			name: "",
+	// 			species: "Swampert",
+	// 			item: "Leftovers",
+	// 			ability: "Torrent",
+	// 			moves: {
+	// 				move1: "Surf",
+	// 				move2: "Protect",
+	// 				move3: "Roar",
+	// 				move4: "Refresh",
+	// 			},
+	// 			evs: {hp: 240, atk: 0, def: 152, spa: 40, spd: 44, spe: 32},
+	// 			nature: "Bold",
+	// 			ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 		set4Data: {
+	// 			name: "",
+	// 			species: "Salamence",
+	// 			item: "Leftovers",
+	// 			ability: "Intimidate",
+	// 			moves: {
+	// 				move1: "Dragon Claw",
+	// 				move2: "Fire Blast",
+	// 				move3: "Hidden Power Grass",
+	// 				move4: "Brick Break",
+	// 			},
+	// 			evs: {hp: 0, atk: 4, def: 0, spa: 252, spd: 0, spe: 252},
+	// 			nature: "Naive",
+	// 			ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
+	// 		},
+	// 		set5Data: {
+	// 			name: "",
+	// 			species: "Breloom",
+	// 			item: "Leftovers",
+	// 			ability: "Effect Spore",
+	// 			moves: {
+	// 				move1: "Spore",
+	// 				move2: "Focus Punch",
+	// 				move3: "Sky Uppercut",
+	// 				move4: "Mach Punch",
+	// 			},
+	// 			evs: {hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252},
+	// 			nature: "Jolly",
+	// 			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
+	// 		},
+	// 	},
+	// },
 	SkarmBliss_MiloDol_Gar_Yama: {
 		teamName: "SkarmBliss MiloDol Gar Yama",
 		teamData: {
@@ -13973,7 +13973,7 @@ const SampleTeamsData = {
 		teamName: "SkarmMag Bliss CBGross SpecialMence",
 		teamData: {
 			set0Data: {
-				name: "badummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -13988,7 +13988,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "isoptert",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -14003,7 +14003,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "Askarmatitos",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -14018,7 +14018,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Skarm Harvest",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -14033,7 +14033,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "Tooty McBliss",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -14048,7 +14048,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "musicalgross",
+				name: "",
 				species: "Metagross",
 				item: "Choice Band",
 				ability: "Clear Body",
@@ -14448,7 +14448,7 @@ const SampleTeamsData = {
 		teamName: "SkarmMag CBMence SpecialTar",
 		teamData: {
 			set0Data: {
-				name: "badummence",
+				name: "",
 				species: "Salamence",
 				item: "Choice Band",
 				ability: "Intimidate",
@@ -14463,7 +14463,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set1Data: {
-				name: "isoptert",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -14478,7 +14478,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "Askarmatitos",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -14493,7 +14493,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Skarm Harvest",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -14508,7 +14508,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "Tooty McBliss",
+				name: "",
 				species: "Blissey",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -14523,7 +14523,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "Tabatatar",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -20053,7 +20053,7 @@ const SampleTeamsData = {
 		teamName: "MagBulky BPCele SuitRoarTar CBHeras CBGon Milo",
 		teamData: {
 			set0Data: {
-				name: "Kisses of the Sun",
+				name: "",
 				species: "Heracross",
 				item: "Choice Band",
 				ability: "Guts",
@@ -20068,7 +20068,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "Dum Dum Dum",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -20083,7 +20083,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "La La La La",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -20098,7 +20098,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set3Data: {
-				name: "The Magic Melody",
+				name: "",
 				species: "Flygon",
 				item: "Choice Band",
 				ability: "Levitate",
@@ -20113,7 +20113,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 30, spe: 31},
 			},
 			set4Data: {
-				name: "Deep Inside of Me",
+				name: "",
 				species: "Milotic",
 				item: "Leftovers",
 				ability: "Marvel Scale",
@@ -20128,7 +20128,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "Everybodys Singing",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -20623,7 +20623,7 @@ const SampleTeamsData = {
 		teamName: "MagOff OffDol SDRockPassCele Mence",
 		teamData: {
 			set0Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Leftovers",
 				ability: "Clear Body",
@@ -20638,7 +20638,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "saddummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -20653,7 +20653,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set2Data: {
-				name: "NOTAQTDOL",
+				name: "",
 				species: "Claydol",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -20668,7 +20668,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "The Big Fat Kill",
+				name: "",
 				species: "Snorlax",
 				item: "Leftovers",
 				ability: "Immunity",
@@ -20683,7 +20683,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "Magdalene",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -20698,7 +20698,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set5Data: {
-				name: "celeboops!",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -20718,7 +20718,7 @@ const SampleTeamsData = {
 		teamName: "MagOff OffDol SDShadowFightCele CBMence Gyara",
 		teamData: {
 			set0Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Salac Berry",
 				ability: "Clear Body",
@@ -20733,7 +20733,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "saddummence",
+				name: "",
 				species: "Salamence",
 				item: "Choice Band",
 				ability: "Intimidate",
@@ -20748,7 +20748,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set2Data: {
-				name: "NOTAQTDOL",
+				name: "",
 				species: "Claydol",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -20763,7 +20763,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "garaydoaks",
+				name: "",
 				species: "Gyarados",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -20778,7 +20778,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 31, spd: 30, spe: 30},
 			},
 			set4Data: {
-				name: "Magdalene",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -20793,7 +20793,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set5Data: {
-				name: "celeboops!",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -20813,7 +20813,7 @@ const SampleTeamsData = {
 		teamName: "MagOff OffDol SDShadowFightCele Gyara",
 		teamData: {
 			set0Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Salac Berry",
 				ability: "Clear Body",
@@ -20828,7 +20828,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "garaydoaks",
+				name: "",
 				species: "Gyarados",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -20843,7 +20843,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 30, spd: 30, spe: 30},
 			},
 			set2Data: {
-				name: "NOTAQTDOL",
+				name: "",
 				species: "Claydol",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -20858,7 +20858,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "The Big Fat Kill",
+				name: "",
 				species: "Snorlax",
 				item: "Leftovers",
 				ability: "Immunity",
@@ -20873,7 +20873,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "Magdalene",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -20888,7 +20888,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set5Data: {
-				name: "celeboops!",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -20908,7 +20908,7 @@ const SampleTeamsData = {
 		teamName: "MagOff OffDol SDShadowFightCele Mence",
 		teamData: {
 			set0Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Salac Berry",
 				ability: "Clear Body",
@@ -20923,7 +20923,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "saddummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -20938,7 +20938,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set2Data: {
-				name: "NOTAQTDOL",
+				name: "",
 				species: "Claydol",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -20953,7 +20953,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "The Big Fat Kill",
+				name: "",
 				species: "Snorlax",
 				item: "Leftovers",
 				ability: "Immunity",
@@ -20968,7 +20968,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "Magdalene",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -20983,7 +20983,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set5Data: {
-				name: "celeboops!",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -22618,7 +22618,7 @@ const SampleTeamsData = {
 		teamName: "SkarmMag Donphan Milo PerishCele",
 		teamData: {
 			set0Data: {
-				name: "Bxh7+",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -22633,7 +22633,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "show must go on",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -22648,7 +22648,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "my pasta tea toes",
+				name: "",
 				species: "Milotic",
 				item: "Leftovers",
 				ability: "Marvel Scale",
@@ -22663,7 +22663,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "too much love",
+				name: "",
 				species: "Magneton",
 				item: "Leftovers",
 				ability: "Magnet Pull",
@@ -22678,7 +22678,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "fat bottomed girl",
+				name: "",
 				species: "Donphan",
 				item: "Leftovers",
 				ability: "Sturdy",
@@ -22693,7 +22693,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 31, spd: 30, spe: 30},
 			},
 			set5Data: {
-				name: "IM PICKLE RICK",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -22713,7 +22713,7 @@ const SampleTeamsData = {
 		teamName: "SkarmMag FlyDonphan Milo PerishCele",
 		teamData: {
 			set0Data: {
-				name: "Bxh7+",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -22728,7 +22728,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "show must go on",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -22743,7 +22743,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "my pasta tea toes",
+				name: "",
 				species: "Milotic",
 				item: "Leftovers",
 				ability: "Marvel Scale",
@@ -22758,7 +22758,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "too much love",
+				name: "",
 				species: "Magneton",
 				item: "Leftovers",
 				ability: "Magnet Pull",
@@ -22773,7 +22773,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "fat bottomed girl",
+				name: "",
 				species: "Donphan",
 				item: "Leftovers",
 				ability: "Sturdy",
@@ -22788,7 +22788,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 30, spd: 30, spe: 30},
 			},
 			set5Data: {
-				name: "IM PICKLE RICK",
+				name: "",
 				species: "Celebi",
 				item: "Leftovers",
 				ability: "Natural Cure",
@@ -24708,7 +24708,7 @@ const SampleTeamsData = {
 		teamName: "MagDol Dug Zap Milo Lax",
 		teamData: {
 			set0Data: {
-				name: "Ungly Duckly",
+				name: "",
 				species: "Zapdos",
 				item: "Leftovers",
 				ability: "Pressure",
@@ -26323,7 +26323,7 @@ const SampleTeamsData = {
 		teamName: "Cloy Jynx Jolt",
 		teamData: {
 			set0Data: {
-				name: "ヽ(⚆ ε ⚆)ﾉ",
+				name: "",
 				species: "Jynx",
 				item: "Lum Berry",
 				ability: "Oblivious",
@@ -26338,7 +26338,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set1Data: {
-				name: "d3Rp1tY p3rT",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -26353,7 +26353,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "komodo",
+				name: "",
 				species: "Metagross",
 				item: "Lum Berry",
 				ability: "Clear Body",
@@ -26368,7 +26368,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: ":D",
+				name: "",
 				species: "Gengar",
 				item: "Leftovers",
 				ability: "Levitate",
@@ -26383,7 +26383,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set4Data: {
-				name: "z0ms wet dream",
+				name: "",
 				species: "Cloyster",
 				item: "Leftovers",
 				ability: "Shell Armor",
@@ -26398,7 +26398,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "toöøty",
+				name: "",
 				species: "Jolteon",
 				item: "Leftovers",
 				ability: "Volt Absorb",
@@ -28969,7 +28969,7 @@ const SampleTeamsData = {
 				ability: "Thick Fat",
 				moves: {
 					move1: "Curse",
-					move2: "Frustration",
+					move2: "Return",
 					move3: "Rest",
 					move4: "Earthquake",
 				},
@@ -33828,7 +33828,7 @@ const SampleTeamsData = {
 		teamName: "Goof BUChamp Zap Houndoom DDMence BoomLax MixGross",
 		teamData: {
 			set0Data: {
-				name: "DiznoNarrates",
+				name: "",
 				species: "Zapdos",
 				item: "Leftovers",
 				ability: "Pressure",
@@ -33843,7 +33843,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "xray",
+				name: "",
 				species: "Metagross",
 				item: "Leftovers",
 				ability: "Clear Body",
@@ -33858,7 +33858,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set2Data: {
-				name: "scooby doooom",
+				name: "",
 				species: "Houndoom",
 				item: "Leftovers",
 				ability: "Early Bird",
@@ -33873,7 +33873,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "S H A N E",
+				name: "",
 				species: "Machamp",
 				item: "Leftovers",
 				ability: "Guts",
@@ -33888,7 +33888,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 30, spe: 31},
 			},
 			set4Data: {
-				name: "The Big Fat Kill",
+				name: "",
 				species: "Snorlax",
 				item: "Leftovers",
 				ability: "Immunity",
@@ -33903,7 +33903,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "baddummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -34493,7 +34493,7 @@ const SampleTeamsData = {
 		teamName: "SkarmMag CBGross SpecialMence Jolt",
 		teamData: {
 			set0Data: {
-				name: "badummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -34508,7 +34508,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "isoptert",
+				name: "",
 				species: "Swampert",
 				item: "Leftovers",
 				ability: "Torrent",
@@ -34523,7 +34523,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "Askarmatitos",
+				name: "",
 				species: "Skarmory",
 				item: "Leftovers",
 				ability: "Keen Eye",
@@ -34538,7 +34538,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Skarm Harvest",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -34553,7 +34553,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "UglyJolt",
+				name: "",
 				species: "Jolteon",
 				item: "Leftovers",
 				ability: "Volt Absorb",
@@ -34568,7 +34568,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "musicalgross",
+				name: "",
 				species: "Metagross",
 				item: "Choice Band",
 				ability: "Clear Body",
@@ -34778,7 +34778,7 @@ const SampleTeamsData = {
 		teamName: "MagOff AgiliGross BoomLax DDGrassTar MixMence EndPert",
 		teamData: {
 			set0Data: {
-				name: "Stockfish",
+				name: "",
 				species: "Swampert",
 				item: "Salac Berry",
 				ability: "Torrent",
@@ -34793,7 +34793,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "houdini",
+				name: "",
 				species: "Metagross",
 				item: "Lum Berry",
 				ability: "Clear Body",
@@ -34808,7 +34808,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "The Big Fat Kill",
+				name: "",
 				species: "Snorlax",
 				item: "Leftovers",
 				ability: "Immunity",
@@ -34823,7 +34823,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Magnez0m",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -34838,7 +34838,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "baddummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -34853,7 +34853,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set5Data: {
-				name: "february tars",
+				name: "",
 				species: "Tyranitar",
 				item: "Lum Berry",
 				ability: "Sand Stream",
@@ -34873,7 +34873,7 @@ const SampleTeamsData = {
 		teamName: "MagOff GrassGross BoomLax SpecialTar DDMence EndPert",
 		teamData: {
 			set0Data: {
-				name: "houdini",
+				name: "",
 				species: "Metagross",
 				item: "Lum Berry",
 				ability: "Clear Body",
@@ -34888,7 +34888,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 30, spa: 30, spd: 31, spe: 31},
 			},
 			set1Data: {
-				name: "Stockfish",
+				name: "",
 				species: "Swampert",
 				item: "Salac Berry",
 				ability: "Torrent",
@@ -34903,7 +34903,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set2Data: {
-				name: "The Big Fat Kill",
+				name: "",
 				species: "Snorlax",
 				item: "Leftovers",
 				ability: "Immunity",
@@ -34918,7 +34918,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 			set3Data: {
-				name: "Magnez0m",
+				name: "",
 				species: "Magneton",
 				item: "Magnet",
 				ability: "Magnet Pull",
@@ -34933,7 +34933,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 2, def: 31, spa: 30, spd: 31, spe: 30},
 			},
 			set4Data: {
-				name: "baddummence",
+				name: "",
 				species: "Salamence",
 				item: "Leftovers",
 				ability: "Intimidate",
@@ -34948,7 +34948,7 @@ const SampleTeamsData = {
 				ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 31},
 			},
 			set5Data: {
-				name: "february tars",
+				name: "",
 				species: "Tyranitar",
 				item: "Leftovers",
 				ability: "Sand Stream",
@@ -35916,7 +35916,7 @@ const SampleTeamsData = {
 	},
 }
 
-function randomIntFromInterval(min, max) { // min and max included 
+function randomIntFromInterval(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min) + min)
 }
 
@@ -35924,14 +35924,14 @@ export class RandomGen3Teams extends RandomGen4Teams {
 	randomTeam() {
 		var pokemon = [];
 		var genders = ["Male", "Female"];
-		var randomTeam = randomIntFromInterval(0, 377);
+		var randomTeam = randomIntFromInterval(0, Object.keys(SampleTeamsData).length - 1);
 		var team = Object.keys(SampleTeamsData)[randomTeam];
 		var sampleTeamName = SampleTeamsData[team]['teamName'];
 		for (var setNo in SampleTeamsData[team]['teamData']) {
 			var name = SampleTeamsData[team]['teamData'][setNo]['name'];
 			if (name == '') name = SampleTeamsData[team]['teamData'][setNo]['species'];
 			var set = {
-				name: name,
+				name: "",
 				species: SampleTeamsData[team]['teamData'][setNo]['species'],
 				gender: genders[randomIntFromInterval(0, 1)],
 				moves: [SampleTeamsData[team]['teamData'][setNo]['moves']['move1'], SampleTeamsData[team]['teamData'][setNo]['moves']['move2'], SampleTeamsData[team]['teamData'][setNo]['moves']['move3'], SampleTeamsData[team]['teamData'][setNo]['moves']['move4']],
