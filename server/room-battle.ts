@@ -910,7 +910,7 @@ export class RoomBattle extends RoomGames.RoomGame<RoomBattlePlayer> {
 		if (this.replaySaved || Config.autosavereplays) {
 			const uploader = Users.get(winnerid || p1id);
 			if (uploader?.connections[0]) {
-				Chat.parse('/savereplay silent', this.room, uploader, uploader.connections[0]);
+				// Chat.parse('/savereplay silent', this.room, uploader, uploader.connections[0]);
 			}
 		}
 		const parentGame = this.room.parent && this.room.parent.game;
@@ -965,7 +965,7 @@ export class RoomBattle extends RoomGames.RoomGame<RoomBattlePlayer> {
 		const logpath = `logs/${logfolder}/${tier}/${logsubfolder}/`;
 
 		await FS(logpath).mkdirp();
-		await FS(`${logpath}${this.room.getReplayData().id}.log.json`).write(JSON.stringify(logData));
+		// await FS(`${logpath}${this.room.getReplayData().id}.log.json`).write(JSON.stringify(logData));
 		// console.log(JSON.stringify(logData));
 	}
 	onConnect(user: User, connection: Connection | null = null) {
