@@ -14,6 +14,10 @@
  * @license MIT
  */
 
+import {Battle as Battle_, Choice, Log, Lookup, Result} from '@pkmn/engine';
+import {Generations} from '@pkmn/data';
+import {Dex as Dex_} from '@pkmn/dex';
+
 import {Dex, toID} from './dex';
 import {Teams} from './teams';
 import {Field} from './field';
@@ -175,6 +179,8 @@ export class Battle {
 	quickClawRoll: boolean;
 
 	teamGenerator: ReturnType<typeof Teams.getGenerator> | null;
+
+	pkmn_battle: Battle_;
 
 	readonly hints: Set<string>;
 
@@ -1739,6 +1745,18 @@ export class Battle {
 
 		if (this.started) throw new Error(`Battle already started`);
 
+		const pkmn_options = {
+			p1: { name: 'P1', team: this.sides[0].team },
+			p2: { name: 'P2', team: this.sides[1].team },
+			seed: this.prng.initialSeed,
+			showdown: true,
+			log: true,
+		};
+
+		const gens = new Generations(Dex_);
+		const gen = gens.get(1);
+		this.pkmn_battle = Battle_.create(gen, pkmn_options);
+
 		const format = this.format;
 		this.started = true;
 		if (this.gameType === 'multi') {
@@ -2833,9 +2851,31 @@ export class Battle {
 		this.queue.clear();
 		if (!this.allChoicesDone()) throw new Error("Not all choices done");
 
+		let pkmn_choices: Choice[] = []
+
 		for (const side of this.sides) {
 			const choice = side.getChoice();
-			if (choice) this.inputLog.push(`>${side.id} ${choice}`);
+			let choice_fixed = choice;
+			if (choice) {
+				this.inputLog.push(`>${side.id} ${choice}`);
+				const split = choice.split(' ');
+				let index = 1;
+				if (split[0] === 'move') {
+					for (const move of side?.activeRequest?.active[0].moves) {
+						if (move.id === split[1]) {
+							choice_fixed = 'move ' + String(index);
+							break;
+						}
+						index += 1;
+					}
+				}
+			}
+			// process.exit();
+			console.log(choice, choice_fixed);
+
+			let c = Choice.parse(choice_fixed);
+			console.log('choice fixed', choice_fixed, 'parsed', c);
+			pkmn_choices.push(c);
 		}
 		for (const side of this.sides) {
 			this.queue.addChoice(side.choice.actions);
@@ -2849,6 +2889,10 @@ export class Battle {
 		for (const side of this.sides) {
 			side.activeRequest = null;
 		}
+
+		const pkmn_result: Result = this.pkmn_battle.update(pkmn_choices[0], pkmn_choices[1]);
+
+		console.log(pkmn_result);
 
 		this.go();
 		if (this.log.length - this.sentLogPos > 500) this.sendUpdates();
