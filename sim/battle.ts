@@ -1748,20 +1748,6 @@ export class Battle {
 
 		if (this.started) throw new Error(`Battle already started`);
 
-		const pkmn_options = {
-			p1: { name: 'P1', team: this.sides[0].team },
-			p2: { name: 'P2', team: this.sides[1].team },
-			seed: this.prng.seed.slice(),
-			showdown: true,
-			log: true,
-		};
-
-		const gens = new Generations(Dex_);
-		const gen = gens.get(1);
-		this.pkmn_battle = Battle_.create(gen, pkmn_options);
-		this.pkmn_log = new Log(gen, Lookup.get(gen), pkmn_options);
-		const pass_choice: Choice = Choice.pass();
-		this.pkmn_battle.update(pass_choice, pass_choice);
 
 		const format = this.format;
 		this.started = true;
@@ -1823,6 +1809,23 @@ export class Battle {
 		this.queue.addChoice({choice: 'start'});
 		this.midTurn = true;
 		if (!this.requestState) this.go();
+
+		// start make pkmn battle
+		const pkmn_options = {
+			p1: { name: 'P1', team: this.sides[0].team },
+			p2: { name: 'P2', team: this.sides[1].team },
+			seed: this.prng.seed.slice(),
+			showdown: true,
+			log: true,
+		};
+
+		const gens = new Generations(Dex_);
+		const gen = gens.get(1);
+		this.pkmn_battle = Battle_.create(gen, pkmn_options);
+		this.pkmn_log = new Log(gen, Lookup.get(gen), pkmn_options);
+		const pass_choice: Choice = Choice.pass();
+		this.pkmn_battle.update(pass_choice, pass_choice);
+		// end make pkmn battle
 	}
 
 	restart(send?: (type: string, data: string | string[]) => void) {
@@ -2855,7 +2858,12 @@ export class Battle {
 		let pkmn_prng_steps = 0;
 
 		let prng_copy = this.prng.clone();
-		let prng_copy_ = this.prng.clone();
+		let prng_copy_ = new PRNG(this.pkmn_battle.prng.slice());
+
+		console.log('before seed', this.prng.seed);
+		console.log('before pkmn seed', this.pkmn_battle.prng);
+
+		// Before
 
 		this.updateSpeed();
 
@@ -2905,6 +2913,8 @@ export class Battle {
 		this.go();
 		if (this.log.length - this.sentLogPos > 500) this.sendUpdates();
 
+		// After
+
 		let test_eq = (a: PRNG, b: PRNG) => {
 			for (let i = 0; i < 4; ++i) {
 				if (a.seed[i] !== b.seed[i]) return false;
@@ -2919,22 +2929,21 @@ export class Battle {
 			return true;
 		};
 
-		for (let i = 0; i < 4; ++i) {
-			assert(this.pkmn_battle.prng[i] === this.prng.seed[i]);
-			console.log(this.pkmn_battle.prng[i], this.prng.seed[i]);
-		}
+		const max_next_calls = 200;
 
-		while (!test_eq(this.prng, prng_copy) && prng_steps < 100) {
+		while (!test_eq(this.prng, prng_copy) && prng_steps < max_next_calls) {
 			console.log(`testing: ${this.prng.seed} ${prng_copy.seed}`);
 			prng_copy.next();
 			prng_steps += 1;
 		}
+		console.log(`testing: ${this.prng.seed} ${prng_copy.seed}`);
 
-		while (!test_pkmn_eq(this.pkmn_battle.prng, prng_copy_) && pkmn_prng_steps < 100) {
-			console.log(`testing pkmn: ${this.prng.seed} ${prng_copy_.seed}`);
+		while (!test_pkmn_eq(this.pkmn_battle.prng, prng_copy_) && pkmn_prng_steps < max_next_calls) {
+			console.log(`testing pkmn: ${this.pkmn_battle.prng} ${prng_copy_.seed}`);
 			prng_copy_.next();
 			pkmn_prng_steps += 1;
 		}
+		console.log(`testing pkmn: ${this.pkmn_battle.prng} ${prng_copy_.seed}`);
 
 		console.log('prng steps: ', prng_steps);
 		console.log('pkmn prng steps: ', pkmn_prng_steps);
