@@ -17,6 +17,7 @@
 import {Battle as Battle_, Choice, Log, Lookup, Result} from '@pkmn/engine';
 import {Generations} from '@pkmn/data';
 import {Dex as Dex_} from '@pkmn/dex';
+import { assert } from 'console';
 
 import {Dex, toID} from './dex';
 import {Teams} from './teams';
@@ -181,6 +182,8 @@ export class Battle {
 	teamGenerator: ReturnType<typeof Teams.getGenerator> | null;
 
 	pkmn_battle: Battle_;
+	pkmn_result: Result;
+	pkmn_log: Log;
 
 	readonly hints: Set<string>;
 
@@ -1748,7 +1751,7 @@ export class Battle {
 		const pkmn_options = {
 			p1: { name: 'P1', team: this.sides[0].team },
 			p2: { name: 'P2', team: this.sides[1].team },
-			seed: this.prng.initialSeed,
+			seed: this.prng.seed.slice(),
 			showdown: true,
 			log: true,
 		};
@@ -1756,6 +1759,9 @@ export class Battle {
 		const gens = new Generations(Dex_);
 		const gen = gens.get(1);
 		this.pkmn_battle = Battle_.create(gen, pkmn_options);
+		this.pkmn_log = new Log(gen, Lookup.get(gen), pkmn_options);
+		const pass_choice: Choice = Choice.pass();
+		this.pkmn_battle.update(pass_choice, pass_choice);
 
 		const format = this.format;
 		this.started = true;
@@ -2845,6 +2851,12 @@ export class Battle {
 	}
 
 	commitDecisions() {
+		let prng_steps = 0; 
+		let pkmn_prng_steps = 0;
+
+		let prng_copy = this.prng.clone();
+		let prng_copy_ = this.prng.clone();
+
 		this.updateSpeed();
 
 		const oldQueue = this.queue.list;
@@ -2870,8 +2882,6 @@ export class Battle {
 					}
 				}
 			}
-			// process.exit();
-			console.log(choice, choice_fixed);
 
 			let c = Choice.parse(choice_fixed);
 			console.log('choice fixed', choice_fixed, 'parsed', c);
@@ -2890,12 +2900,45 @@ export class Battle {
 			side.activeRequest = null;
 		}
 
-		const pkmn_result: Result = this.pkmn_battle.update(pkmn_choices[0], pkmn_choices[1]);
-
-		console.log(pkmn_result);
+		this.pkmn_result = this.pkmn_battle.update(pkmn_choices[0], pkmn_choices[1]);
 
 		this.go();
 		if (this.log.length - this.sentLogPos > 500) this.sendUpdates();
+
+		let test_eq = (a: PRNG, b: PRNG) => {
+			for (let i = 0; i < 4; ++i) {
+				if (a.seed[i] !== b.seed[i]) return false;
+			}
+			return true;
+		};
+
+		let test_pkmn_eq = (a: readonly number[], b: PRNG) => {
+			for (let i = 0; i < 4; i += 1) {
+				if (a[i] !== b.seed[i]) return false;
+			}
+			return true;
+		};
+
+		for (let i = 0; i < 4; ++i) {
+			assert(this.pkmn_battle.prng[i] === this.prng.seed[i]);
+			console.log(this.pkmn_battle.prng[i], this.prng.seed[i]);
+		}
+
+		while (!test_eq(this.prng, prng_copy) && prng_steps < 100) {
+			console.log(`testing: ${this.prng.seed} ${prng_copy.seed}`);
+			prng_copy.next();
+			prng_steps += 1;
+		}
+
+		while (!test_pkmn_eq(this.pkmn_battle.prng, prng_copy_) && pkmn_prng_steps < 100) {
+			console.log(`testing pkmn: ${this.prng.seed} ${prng_copy_.seed}`);
+			prng_copy_.next();
+			pkmn_prng_steps += 1;
+		}
+
+		console.log('prng steps: ', prng_steps);
+		console.log('pkmn prng steps: ', pkmn_prng_steps);
+
 	}
 
 	undoChoice(sideid: SideID) {
