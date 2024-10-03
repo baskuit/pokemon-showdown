@@ -16,24 +16,36 @@ if (isNaN(n_seeds)) {
     process.exit(1);
 }
 
+const waitForExit = (child: any) => {
+    return new Promise((resolve) => {
+        child.on('close', (data : any) => {
+            resolve(data);
+        });
+    });
+};
+
 console.log(`Checking ${n_seeds} seeds...`);
 
-for (let i = 0; i < n_seeds; ++i) {
-    const seed: PRNGSeed = PRNG.generateSeed();
-    let gen = new RandomGen1Teams('gen1randombattle', new PRNG(seed));
-    const team = gen.randomTeam();
+async function test_seeds() {
+    for (let i = 0; i < n_seeds; ++i) {
+        let output = '';
 
-    const cl_args = seed.map(num => num.toString());
+        const seed: PRNGSeed = PRNG.generateSeed();
+        let gen = new RandomGen1Teams('gen1randombattle', new PRNG(seed));
+        const team = gen.randomTeam();
 
+        const cl_args = seed.map(num => num.toString());
 
-    const child = spawn('../../../../../build/teamgen', cl_args);
-    let output = '';
-    child.stdout.on('data', (data) => {
-        output += data.toString();
-    });
-    child.stderr.on('data', (data) => {
-        console.error("teamgen encountered an error.");
-        console.error(data);
-        process.exit(1);
-    });
+        const child = spawn('../../../../../build/teamgen', cl_args);
+        child.stdout.on('data', (data) => {
+            output += data.toString();
+        });
+        child.stderr.on('data', (data) => {
+            console.error("teamgen encountered an error.");
+            console.error(data);
+            process.exit(1);
+        });
+        await waitForExit(child);
+        console.log(output);
+    }
 }
