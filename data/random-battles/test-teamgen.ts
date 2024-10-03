@@ -1,5 +1,6 @@
 import RandomGen1Teams from './gen1/teams';
 import { PRNG, PRNGSeed } from "../../sim/prng";
+import { spawn } from 'child_process';
 
 const args = process.argv.slice(2);
 
@@ -10,7 +11,7 @@ if (args.length !== 1) {
 }
 
 const n_seeds = Number(args[0]);
-if (NaN(n_seeds)) {
+if (isNaN(n_seeds)) {
     console.error("Invalid input.");
     process.exit(1);
 }
@@ -25,7 +26,7 @@ for (let i = 0; i < n_seeds; ++i) {
     const cl_args = seed.map(num => num.toString());
 
 
-    const child = process.spawn('../../../../build/teamgen', args);
+    const child = spawn('../../../../../build/teamgen', cl_args);
     let output = '';
     child.stdout.on('data', (data) => {
         output += data.toString();
@@ -36,4 +37,3 @@ for (let i = 0; i < n_seeds; ++i) {
         process.exit(1);
     });
 }
-
