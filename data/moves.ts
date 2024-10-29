@@ -2908,11 +2908,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 			const possibleTypes = [];
 			const attackType = target.lastMoveUsed.type;
-			for (const type of this.dex.types.names()) {
-				if (source.hasType(type)) continue;
-				const typeCheck = this.dex.types.get(type).damageTaken[attackType];
+			for (const type of this.dex.types.all()) {
+				if (source.hasType(type.name)) continue;
+				const typeCheck = type.damageTaken[attackType];
 				if (typeCheck === 2 || typeCheck === 3) {
-					possibleTypes.push(type);
+					possibleTypes.push(type.name);
 				}
 			}
 			if (!possibleTypes.length) {
@@ -3131,7 +3131,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {mirror: 1, metronome: 1},
 		onHitField(target, source) {
 			const sideConditions = [
-				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'luckychant', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire', 'gmaxvolcalith',
 			];
 			let success = false;
 			if (this.gameType === "freeforall") {
@@ -14916,10 +14916,17 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					}
 					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
 					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
+					if (source.canMegaEvo || source.canUltraBurst || source.canTerastallize) {
 						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
+							if (action.pokemon === source) {
+								if (action.choice === 'megaEvo') {
+									this.actions.runMegaEvo(source);
+								} else if (action.choice === 'terastallize') {
+									// Also a "forme" change that happens before moves, though only possible in NatDex
+									this.actions.terastallize(source);
+								} else {
+									continue;
+								}
 								this.queue.list.splice(actionIndex, 1);
 								break;
 							}
@@ -15500,8 +15507,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				this.add('-fail', source, 'heal');
 				return null;
 			}
-			if (source.hasAbility(['insomnia', 'vitalspirit'])) {
-				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
+			// insomnia and vital spirit checks are separate so that the message is accurate in multi-ability mods
+			if (source.hasAbility('insomnia')) {
+				this.add('-fail', source, '[from] ability: Insomnia', '[of] ' + source);
+				return null;
+			}
+			if (source.hasAbility('vitalspirit')) {
+				this.add('-fail', source, '[from] ability: Vital Spirit', '[of] ' + source);
 				return null;
 			}
 		},
@@ -18430,6 +18442,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		condition: {
 			duration: 1,
+			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(pokemon) {
 				this.add('-singleturn', pokemon, 'move: Spotlight');
 			},
